@@ -76,5 +76,27 @@ NOW we want to talk about props;
     in React data only can be passed from parent to child element
     
 
+
+General rules of JSX:
+  1. JSX works essentially like HTML, but we can enter "JavaScript mode" by using {} (for text or attributes)
+  2. We can place javascript expressions inside {}. Examples: refrence variables, create arrays or objects, [].map(),ternary operator
+  3. Statements are not allowed (if/else, for/switch)
+  4. JSX produces a javascript expression:
+    1. We can place other pieces of JSX inside {}
+    2. We can write JSX anywhere inside a component (if/else, assign to variables, pass it into function)
+  
+  5. A piece of JSX can only have one root element if you need more,use <React.Fragment> {or the short <>}
+
+
+Diffrence between JSX and HTML :
+1. className instead of HTML's classes
+2. htmlFor instead of HTML's for
+3. Every tag needs to be closed, Examples: <img /> or <br />
+4. All event handlers and other properties need to be camelCased Examples: onClick or onMouseOver
+5. Exception: aria-* and data-* are written with dashes like in the HTML
+6. CSS inline styles are written like this: {{style}} (to refrence a variable and then an object)
+7. CSS property names are also camelCased
+8. Comments need to be in {} (because they are JS)
+
 */
 
