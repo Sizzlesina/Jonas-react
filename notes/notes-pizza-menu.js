@@ -17,7 +17,7 @@ const test = () => {}
 in react we must keep a simple rule for all the functions:
 
 1. the function must start with a capital letter
-2. the function must return a make up
+2. the function must return a markup
 
 
 Components in react contains the Data, Logic and Appearance all together 
@@ -97,6 +97,70 @@ Diffrence between JSX and HTML :
 6. CSS inline styles are written like this: {{style}} (to refrence a variable and then an object)
 7. CSS property names are also camelCased
 8. Comments need to be in {} (because they are JS)
+
+
+
+when we use the && operator we want to if the first value was true the app return us the second value and if the value of the first parameter was fasle then it returns nothing (because React wont return "true" or "false" and it will always returns a value)
+HINT: Now we have to choose if we want to use the ternary operator or tbe && operator based on our app
+
+
+
+
+
+
+
+
+
+TIP: in my opinion the best way to use the conditional rendering is to use the ternary operator 
+
+
+
+WARNING: Outside of the JSX we can write if/else statement but inside the JSX it must only returns value so we cant use if/else statement 
+
+
+
+
+Pizza Menu Project piece of codes:
+
+------------------------------------------------------------------------
+ {pizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{pizzaObj.price}</span>
+        )} 
+------------------------------------------------------------------------
+if we want to check if a condition is true return the null value (for example when we dont want to show a element if a certain condition is not true) we can use the if/else statement outside the JSX like this piece of code from the pizza-menu project:
+------------------------------------------------------------------------
+we were write diffrent conditional rendering piece of code but all of them has the same output so now lets take a look at them:
+
+const isOpen = 12;
+{isOpen && "We're currently open"}
+{isOpen ? "We're currently open" : null}
+
+if(pizzaObj.soldOut) return null;
+
+HINT: first two piece of code has the same output
+------------------------------------------------------------------------
+A piece of code that i wont need but maybe take a look at in the pizza menu project so i keep it here:
+
+ <Pizza
+        name='Pizza Spinaci'
+        ingredients='Tomato, mozarella, spinach, and ricotta cheese'
+        photoName='pizzas/spinaci.jpg'
+        price={10}
+      />
+      <Pizza
+        name='Pizza Funghi'
+        ingredients='Tomato, mushrooms'
+        price={12}
+        photoName='pizzas/funghi.jpg'
+      />
+------------------------------------------------------------------------
+ when we want to use a condition in the classes of a element in react we can use template literals like this;
+
+<main className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}></main>
+
+TIP: this line of code will check the condition and if its true then returns the "sold-out" string and if not true then returns an empty string
 
 */
 
