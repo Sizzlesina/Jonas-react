@@ -1,0 +1,5 @@
+/*
+In this project we write the components inside the App.js file but since we are beginner we write it like this and later we will have a different file for every component we need
+
+
+*/
