@@ -42,4 +42,8 @@ in React we have One-way-data-flow that means data can only flow from parent to 
 ? Derived state:
 State that is computed from an existing piece of state or from props
 
+
+? The children prop allow us to pass JSX into an element (Besides regular props)
+
+
 */ 
