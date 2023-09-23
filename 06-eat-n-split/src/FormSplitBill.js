@@ -1,12 +1,22 @@
 /** @format */
 import { useState } from "react";
-export default function FormSplitBill({ selectedFriend }) {
+import Button from "./Button";
+
+export default function FormSplitBill({ selectedFriend, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [paidByUser, setPaidByUser] = useState("");
   const paidByFriend = bill ? bill - paidByUser : "";
-  const [isPaying, setIsPaying] = useState("user");
+  const [whoIsPaying, setWhoIsPaying] = useState("user");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!bill || !paidByUser) return;
+    onSplitBill(whoIsPaying === "user" ? paidByFriend : -paidByUser);
+  }
+
   return (
-    <form className='form-split-bill'>
+    <form className='form-split-bill' onSubmit={handleSubmit}>
       <h2>Split a bill with {selectedFriend.name}</h2>
 
       <label>💰Bill value</label>
@@ -18,12 +28,12 @@ export default function FormSplitBill({ selectedFriend }) {
 
       <label>🧍Your expense</label>
       <input
-        type='number'
-        value={paidByUser > 0 ? paidByUser : ""}
+        type='text'
+        value={paidByUser}
         onChange={(e) =>
-          setPaidByUser(Number(e.target.value)) > bill
-            ? bill
-            : setPaidByUser(Number(e.target.value))
+          setPaidByUser(
+            Number(e.target.value) > bill ? paidByUser : Number(e.target.value)
+          )
         }
       />
 
@@ -31,10 +41,14 @@ export default function FormSplitBill({ selectedFriend }) {
       <input type='text' disabled value={paidByFriend} />
 
       <label>🤑Who's paying the bill?</label>
-      <select value={isPaying} onChange={(e) => setIsPaying(e.target.value)}>
+      <select
+        value={whoIsPaying}
+        onChange={(e) => setWhoIsPaying(e.target.value)}>
         <option value='user'>You</option>
         <option value='friend'>{selectedFriend.name}</option>
       </select>
+
+      <Button>Split bill</Button>
     </form>
   );
 }
