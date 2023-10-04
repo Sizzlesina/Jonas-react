@@ -269,6 +269,38 @@ key="q89"
 
 ! HINT: By default event handlers listen to events on the target and during the bubbling phase 
 
-3 minutes to the 16th video
+! HINT: We can prevent bubbling with e.stopPropagation()
+
+* Event delegation:
+
+@ - Handling events for multiple elements centrally in one single parent element
+
+@ - Better for performance and memory,as it needs only one handler function
+
+@ - Add handler to parent (.options) 
+
+@ - Check for target element (e.target) 
+
+@ - If target is one of the <button>'s handle the event
+
+ ? React registers all event handlers on the root DOM container. This is where all events are handled
+! HINT: Behind the scenes,React performs event delegation for all events in our application 
+
+* Synthetic events:
+
+- 👉 wrapper around the DOM's native event object.
+
+- 👉 Has some interface as native event objects,like stopPropagation() and preventDefault().
+
+- 👉 Fixes browser inconsistencies,so that events work in the exact same way in all browsers.
+
+- 👉 Most synthetic events bubble (including focus,blur,and change),except for scroll
+
+* Event handlers in React VS. JS:
+👉 Attributes for event handlers are named using camelCase (onClick insted of onclick or click)
+
+👉 Default behavior can not be prevented by returning false (only by using preventDefault())
+
+👉 Attach "capture" if you need to handle during capture phase (example: onClickCapture )
 
 */
