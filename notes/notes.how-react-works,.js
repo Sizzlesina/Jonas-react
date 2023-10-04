@@ -209,5 +209,38 @@ key="q89"
 
 !HINT: This is just different question but they are at the same position
 
+* The two type of logic in React components:
+@ 1- Render logic:
+- 👉 Code that lives at the top level of the component function
+- 👉 Participartes in describing how the component view looks like
+- 👉 Executed every time the component renders
+
+@ 2- Event handler functions:
+- 👉 Executed as a consequence of the event that the handler is listening for (change the event in this example)
+- 👉 Code that actually does things: Update the state , perform an HTTP request,read an input field, navigate to another page,etc.
+
+
+* Refresher => Functional programming principles:
+@ Side effect:
+- dependency on or modification of any data outside the function scope. "Interaction with the outside world". Examples: mutating external variables, HTTP requests, writing to DOM.
+
+@ Pure function: 
+- a function that has no side effect
+? 👉 Does not change any variables outside its scope
+? 👉 Given the same input, a pure function always return the same output
+  
+
+* Rules for render logic:
+@ - component must be pure when it comes to render logic:
+ given the same props(input),a component instance should always return the same JSX (output)
+ @ - Render logic must produce no side effects:
+++  no interaction with the "outside world" is allowed, so in render logic:
+    👉 Do not perform network request (API calls)
+    👉 Do not start timers
+    👉 Do not directly use the DOM API
+    👉 Do not mutate objects or variables outside of the function scope (this is why we cant mutate props!)
+    👉 Do not update state (or refs): this will create an infinite loop!
+    
+! Side effects are allowed (and encouraged) in event handler functions! There is also a special hook to register side effects (useEffect)
 
 */
