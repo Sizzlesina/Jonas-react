@@ -1,7 +1,13 @@
 /** @format */
-
+import { useState } from "react";
 import Navbar from "./Navbar";
-import  Main  from "./Main";
+import Main from "./Main";
+import Search from "./Search";
+import NumResults from "./NumResults";
+import Box from "./Box";
+import MovieList from "./MovieList";
+import WatchedSummary from "./WatchedSummary";
+import WatchedMovieList from "./WatchedMovieList";
 
 export const tempMovieData = [
   {
@@ -54,10 +60,29 @@ export const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
+  const [isOpen2, setIsOpen2] = useState(true);
+  const [watched, setWatched] = useState(tempWatchedData);
+
   return (
     <>
-      <Navbar />
-      <Main />
+      <Navbar>
+        <Search />
+        <NumResults movies={movies} />
+      </Navbar>
+
+      <Main>
+        <Box>
+          <MovieList movies={movies} />
+        </Box>
+
+        <Box>
+          <>
+            <WatchedSummary watched={watched} />
+            <WatchedMovieList watched={watched} />
+          </>
+        </Box>
+      </Main>
     </>
   );
 }

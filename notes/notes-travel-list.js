@@ -8,7 +8,7 @@ State:
 2. Component "memory"
 3. Can be updated by the component itself
 4. Updating state casuses component to re-render
-5. Used to maek components interactive
+5. Used to make components interactive
 
 Props:
 1. External data, owned by parent component
@@ -19,7 +19,7 @@ Props:
 
 
 
-Three steps to do the steps:
+Three steps to do the steps project:
 1. Define the state variable
 2. Use the state variable
 3. Update the state variable

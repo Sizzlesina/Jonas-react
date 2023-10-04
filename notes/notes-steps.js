@@ -15,7 +15,7 @@ we wont use the event handlers inside the element attribute and instead we will 
 
 All the tips needed for state:
 
-1. Data thah a component cann hold over time, necessary for information that it needs to remember throughout the app's lifecycle
+1. Data that a component can hold over time, necessary for information that it needs to remember throughout the app's lifecycle
 
 2. "Component's memory"
 

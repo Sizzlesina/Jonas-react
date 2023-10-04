@@ -1,15 +1,12 @@
 /** @format */
 
-import  NumResults  from "./NumResults";
-import  Logo  from "./Logo";
-import  Search  from "./Search";
+import Logo from "./Logo";
 
-export default function Navbar() {
+export default function Navbar({ children }) {
   return (
     <nav className='nav-bar'>
       <Logo />
-      <Search />
-      <NumResults />
+      {children}
     </nav>
   );
 }
