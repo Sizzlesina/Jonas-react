@@ -243,4 +243,24 @@ key="q89"
     
 ! Side effects are allowed (and encouraged) in event handler functions! There is also a special hook to register side effects (useEffect)
 
+
+
+* How state updates are batched?
+@ - Renders are not triggered immediately, but scheduled for when the JS engine has some "free time".There is also batching of multiple setState calls in event handlers
+
+
+! HINT: Updating in React is asynchronous
+
+@ - Update state variables are not immediately available after setState call,but only after the re-render
+@ - This also applies when only one state variable is updated 
+@ - If we need to update state based on previous update,we use setState with callback (setAnswer (answer => ... ))
+
+
+* Batching beyond event handler functions:
+@ - React 17: only automatic batching in event handlers
+@ - React 18: automatic batching in event handlers , timeouts , promises and native events
+
+! HINT: We can opt out of automatic batching by wrapping a state update in ReactDOM.flushSync() (But we will never need this)
+
+
 */
