@@ -262,5 +262,13 @@ key="q89"
 
 ! HINT: We can opt out of automatic batching by wrapping a state update in ReactDOM.flushSync() (But we will never need this)
 
+* DOM Refresher => Event propagation and declaration:
+@ - Capturing phase
+@ - Target element
+@ - Bubbling phase
+
+! HINT: By default event handlers listen to events on the target and during the bubbling phase 
+
+3 minutes to the 16th video
 
 */
