@@ -140,4 +140,22 @@ the current reconciler in React is called Fiber;
 -some descriptions about the reconciliation in action(you can check the video later)
 
 
+
+* Commit phase:
+
+@ - React writes to the DOM: insertions,deletions,and updates (list of DOM updates are "flushed" to the DOM)
+
+@ - Commiting is synchronous: DOM is updated in one go, it cant be interupted. This is necessary so that the DOM never shows partial results m ensuring a consistent UI (in sync with state at all times).
+
+@ - After the commit phase completes, the workInProgress fiber tree becomes the current tree for the next render cycle
+
+! HINT: React will never touch the DOM! React only renders. it will doesnt know where the render result will go
+
+! HINT: React can be used on diffrent platforms("hosts")
+
+! HINT: sometimes we update the DOM using renderers which is a terrible name because renderes do not render,they commit the result of render phase
+
+* Recap => puttin it all together:
+so the whole process of rendering and displaying a React application on the screen starts with a trigger which can either be the initial render of the app or a state update in one of the component instances this then triggers the render phase which does not produce any visual output so this phase starts by rendering all component instances that need a re-render and rendering in React simply means to call the components functions this will create one or more updated React elements which will be placed in a new virtual DOM,which is actually simply a tree of React elements. Now whats really important to remember about this process is that rendering a component will cause all of its child components to be rendered as well,no matter if props changer or not.This is becasue React doesnt know whether children have been affected by the parent re-rendering or not. Now next up this new virtual DOM needs to be reconciled with the current fiber tree.So with the representation of the element tree before the state update,this is necessary because it would be slow and inefficient to destroy and rebuild the entire DOM tree each time that something on the screen must be updated. Instead reconciliation tries to reuse as much of the DOM as possible by finding the smallest number of DOM updates that reflect the latest state update on the screen.Now this reconciliation process is done using a reconciler called fiber,which works with a mutable data structure called fiber tree and in this tree for each React element and DOM element,there is a fiber and this fiber holds the actual component state props and a queue of work. After reconciliation this queue of work will contain the DOM updates that are needed for that element.Now the computation of these updates is performed by a diffing algorihtm,which step by step compares the elements in the new virtual DOM with the elements in the current fiber tree t see what had changed. So the final result of the render phase. So basically of this reconciliation and diffing process is a second updated fiber tree as well as a list of necessary DOM updates.Now its important to note that the render phase is asynchronous,so fiber can prioritize and split work into chunks and pause and resume some work later and this is necessary for concurrent features and also to prevent the JavaScript engine to be blocked by complex render processes. But anyway the output of the render phase(the list of DOM updates) will finally actually be written to the DOM in the commit phase so in this phase, a so-called renderer like React DOM will insert,delete and update DOM elements so that we end up with an updated DOM that reflects the new state of the application and unlike the render phase,the commit phase is actually synchronous so all the DOM updates are performed in one go in order to ensure a consistent UI over time . Now finally once the brower realises that the DOM has been updated, it starts a new browser paint in order to visually update the user interface on the screen 
+
 */
