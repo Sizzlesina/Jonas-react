@@ -164,4 +164,50 @@ so the whole process of rendering and displaying a React application on the scre
 1. Two elements of different types will produce different trees
 2- Elements with a stable key prop stay the same across renders  
 
+
+* Key prop:
+@ - special prop which we can use to tell the diffing algorithm that an element is unique
+
+@ - Allows React to distinguish between multiple instances of the same component type
+
+@ - when a key stays the same across renders,the element will be kept in the DOM (even if the position in the tree changes)
+* Using keys in lists
+
+@ - When a key changes between renders,the element will be destroyed and a new one will be created (even if the position in the tree is the same as before)
+* Using keys to reset state
+
+
+* Using keys in lists:
+@ -  when we dont use the keys then when we want to add a new element to the list (or items) the position of the last elements wil be changed so as the diffing rules React will remove and recreate them in the DOM so this is a waste of time but when we use key props they will have diffrent position in the tree but the key stays the same,so the element will be kept in the DOM and its better for UI performace
+  
+
+* Using key props to reset state (changing key):
+@ - If we have the same element at the same position in the tree the DOM element and state will be kept
+
+@ - Look at this example:
+
+<QuestionBox>
+<Question question{{
+  title: "React VS JS",
+  body: "Why should we use React?:"
+}}
+key = "q23" />
+</QuestionBox>
+ 
+Question state(answer): "React allows us to build apps faster"
+
+@ Now when we want to update the title and body the question state will get reset because of the key (keys are different in each component):
+
+<QuestionBox>
+<Question question={{
+  title "Best course ever :D",
+  body: "This is the React course!"
+}}
+key="q89"
+ />
+</QuestionBox>
+
+!HINT: This is just different question but they are at the same position
+
+
 */
