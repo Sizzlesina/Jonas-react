@@ -303,4 +303,17 @@ key="q89"
 
 👉 Attach "capture" if you need to handle during capture phase (example: onClickCapture )
 
+
+
+* Libararies VS. Framework & The React ecosystem:
+
+@ - Framework (All in one kit): Everything you need to build a complete application is included in the framework ("batteries included")
+
+! - NO CHOICE! your're stuck with the framework's tools and conventions (which is not always bad!).
+
+@ - Library (Seperate ingredients): You can (or n eed to) choose multiple 3rd-party libraries to build a complete application
+
+! Decision fatigue! You need to research,download,learn, and stay up-to-date with multiple external libraries.
+ 
+
 */
