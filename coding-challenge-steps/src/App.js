@@ -102,3 +102,5 @@ function Counter() {
     </div>
   );
 }
+
+// Exercise

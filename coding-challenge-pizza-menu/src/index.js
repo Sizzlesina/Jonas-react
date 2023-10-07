@@ -86,3 +86,5 @@ root.render(
     <App />
   </StrictMode>
 );
+
+// Exercise
