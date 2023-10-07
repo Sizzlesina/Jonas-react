@@ -64,41 +64,70 @@ export const average = (arr) =>
 const KEY = "9a219123";
 
 export default function AppV2() {
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const query = "interstellar";
+  const tempQuery = "interstellar";
 
+  /*
   useEffect(function () {
-    async function fetchMovies() {
-      try {
-        setIsLoading(true);
-        const res =
-          await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}
+    console.log("After the initial render");
+  }, []);
+  useEffect(function () {
+    console.log("After every render");
+  });
+  console.log("During render ");
+  useEffect(
+    function () {
+      console.log("D");
+    },
+    [query]
+  );
+  */
+
+  useEffect(
+    function () {
+      async function fetchMovies() {
+        try {
+          setIsLoading(true);
+          setError("");
+          const res =
+            await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}
        `);
-        if (!res.ok)
-          throw new Error("Something went wrong with fetching movies");
 
-        const data = await res.json();
-        if (data.Response === "False") throw new Error("Movie not found");
+          if (!res.ok)
+            throw new Error("Something went wrong with fetching movies");
 
-        setMovies(data.Search);
-      } catch (err) {
-        console.log(err.message);
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
+          const data = await res.json();
+          if (data.Response === "False") throw new Error("Movie not found");
+
+          setMovies(data.Search);
+          setError("");
+        } catch (err) {
+          console.error(err.message);
+          setError(err.message);
+        } finally {
+          setIsLoading(false);
+        }
       }
-    }
 
-    fetchMovies();
-  }, []); // the empty array means that it would work on mount`   
+      if (query.length < 3) {
+        setMovies([]);
+        setError("");
+        return;
+      }
+
+      fetchMovies();
+    },
+    [query]
+  );
 
   return (
     <>
       <Navbar>
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </Navbar>
 
@@ -106,7 +135,7 @@ export default function AppV2() {
         <Box>
           {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
           {isLoading && <Loader />}
-          {isLoading && !error && <MovieList movies={movies} />}
+          {!isLoading && !error && <MovieList movies={movies} />}
           {error && <ErrorMessage message={error} />}
         </Box>
 
