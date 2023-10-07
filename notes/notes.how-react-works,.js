@@ -344,3 +344,6 @@ key="q89"
 @ - React is library and not a framework.This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem , as you will learn about the most commonly used libraries in this course.
 
  */
+
+
+// Notes file
