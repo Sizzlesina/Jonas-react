@@ -1,5 +1,5 @@
 /** @format */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Main from "./Main";
 import Search from "./Search";
@@ -65,10 +65,12 @@ export default function AppV2() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
 
-  fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar
-  `)
-    .then((res) => res.json())
-    .then((data) => console.log(data.Search));
+  useEffect(function () {
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar
+    `)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search));
+  }, []); // the empty array means that it would work on mount
 
   return (
     <>
