@@ -343,6 +343,23 @@ key="q89"
 
 @ - React is library and not a framework.This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem , as you will learn about the most commonly used libraries in this course.
 
+
+* Component (instance) lifecycle:
+
+@ Mount / Initial render:
+- Component instance is rendered for the first time
+- Fresh state and props are created
+
+@ Re-render:
+- State changes
+- Props change
+- Parent re-renders
+- Context changes
+
+@ Unmount (when component will die):
+- Component instance is destroyed and removed
+- State and props are destroyed
+
  */
 
 
