@@ -93,7 +93,7 @@ export default function AppV2() {
     }
 
     fetchMovies();
-  }, []); // the empty array means that it would work on mount`
+  }, []); // the empty array means that it would work on mount`   
 
   return (
     <>
