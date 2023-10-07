@@ -64,12 +64,16 @@ const KEY = "9a219123";
 export default function AppV2() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
+  const query = "interstellar";
 
   useEffect(function () {
-    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar
-    `)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.Search));
+    async function fetchMovies() {
+      const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}
+     `);
+      const data = await res.json();
+      setMovies(data.Search);
+    }
+    fetchMovies();
   }, []); // the empty array means that it would work on mount
 
   return (
