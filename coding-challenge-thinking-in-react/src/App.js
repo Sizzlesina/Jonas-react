@@ -72,4 +72,4 @@ function Output({ bill, tip }) {
 function Reset({onReset}) {
   return <button onClick={onReset}>Reset</button>;
 }
-// Exercise
+// Coding challenge

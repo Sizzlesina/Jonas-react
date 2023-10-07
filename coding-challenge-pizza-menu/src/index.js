@@ -87,4 +87,4 @@ root.render(
   </StrictMode>
 );
 
-// Exercise
+// Coding challenge

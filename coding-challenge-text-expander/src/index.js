@@ -11,4 +11,4 @@ root.render(
     <App />
   </React.StrictMode>
 );
-// Exercise
+// Coding challenge
