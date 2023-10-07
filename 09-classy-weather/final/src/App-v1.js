@@ -150,3 +150,5 @@ class Day extends React.Component {
     );
   }
 }
+
+// Unchanged

@@ -325,7 +325,7 @@ key="q89"
 
 @ - Only the initial app render and state updates can cause a render,which happens for the entire application,not just one single component
 
-@ - When a component instance gets re-rendered, all its children will get re-rendered as well.This doesn't mean that all children will get updated in the DOM.thanks to recociliation,which checks which elements have actually changed between two renders, But all this re-rendering can still have an impact on performance (more on that later in the course)
+@ - When a component instance gets re-rendered, all its children will get re-rendered as well.This doesn't mean that all children will get updated in the DOM.thanks to reconciliation,which checks which elements have actually changed between two renders, But all this re-rendering can still have an impact on performance (more on that later in the course)
 
 @ - Diffing is how React decides which DOM elements need to be added or modified. If between renders, a certain React element stays at the same position in the element tree,the corresponding DOM element and component state will stay the same.If the element changed to a different position, or if its a different element type,the DOM element and state will be destroyed
 
@@ -339,7 +339,7 @@ key="q89"
 
 @ - Multiple state updates inside an event handler function are batched,so they happen all at once causing only one re-render.This means we can not access a state variable immediately after updating it: state updates are asynchronous.Since React 18 , batching also happens in timeouts,promises and native event handlers.
 
-@ - When we using events in event handlers, we get access to a synthetic event object, not the browser's  native object, so that event work the same way across all browsers. The difference is that most synthetic events bubble, including focus , blur, and change, which do not bubble as native browser events. Only the scroll event does not bubble.
+@ - When we using events in event handlers, we get access to a synthetic event object, not the browser's native object, so that event work the same way across all browsers. The difference is that most synthetic events bubble, including focus , blur, and change, which do not bubble as native browser events. Only the scroll event does not bubble.
 
 @ - React is library and not a framework.This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem , as you will learn about the most commonly used libraries in this course.
 
