@@ -8,6 +8,7 @@ import Box from "./Box";
 import MovieList from "./MovieList";
 import WatchedSummary from "./WatchedSummary";
 import WatchedMovieList from "./WatchedMovieList";
+import  Loader  from "./Loader";
 
 export const tempMovieData = [
   {
@@ -64,14 +65,18 @@ const KEY = "9a219123";
 export default function AppV2() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
+  const [isLoading, setIsLoading] = useState(false);
+
   const query = "interstellar";
 
   useEffect(function () {
     async function fetchMovies() {
+      setIsLoading(true);
       const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}
      `);
       const data = await res.json();
       setMovies(data.Search);
+      setIsLoading(false);
     }
     fetchMovies();
   }, []); // the empty array means that it would work on mount
@@ -84,9 +89,7 @@ export default function AppV2() {
       </Navbar>
 
       <Main>
-        <Box>
-          <MovieList movies={movies} />
-        </Box>
+        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
 
         <Box>
           <>
@@ -98,5 +101,3 @@ export default function AppV2() {
     </>
   );
 }
-
-// Not done yet
