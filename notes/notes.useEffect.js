@@ -73,5 +73,6 @@ some examples for dependency array:
 * Synchronization => Effect synchronizes with everything
 ++ Lifecycle => Runs on every render (usually bad⛔)
 
+Update news of the course progress => today im sick and cant work properly
 
 */
