@@ -32,3 +32,24 @@ userRating,
 # in every component:
 
 in every componentt we may need some state for rendering something inside the component and some state for rendering something outside the component and we must write the state that we need outside the component in the parent component to have access to the outside of the component data's
+
+
+# in line 65 to 76 of MovieDetails component:
+
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie ${title}`;
+
+      return function () {
+        document.title = "usePopcorn";
+        console.log(`Clean up effect for movie ${title}`);
+      };
+    },
+    [title]
+  );
+
+the function that we will return inside of the useEffect will remember the title and that's because of something called "Closure" in javaScript
+
+# Closure:  
+- means that a function will always remember all the variables that were present at the time and the place that the function was created (by simple saying).
