@@ -159,7 +159,7 @@ export default function AppV2() {
 
       <Main>
         <Box>
-          {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
+          {/* {isLoading ? <Loader /> : <MovieList movies={movies} />}  keep this piece of code as a refrence*/ } 
           {isLoading && <Loader />}
           {!isLoading && !error && (
             <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
