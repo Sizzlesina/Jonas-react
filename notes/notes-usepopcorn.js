@@ -110,4 +110,9 @@ function Success(){
 
 ? Prop types:
 @ with prop types we can basically specify the type of value that we expect the consumer of the component to pass in for each of the props
+
+
+
+* Closure:  
+@ - means that a function will always remember all the variables that were present at the time and the place that the function was created (by simple saying).
 */ 
