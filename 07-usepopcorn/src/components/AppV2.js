@@ -125,8 +125,10 @@ export default function AppV2() {
           setMovies(data.Search);
           setError("");
         } catch (err) {
-          if (err.name !== "AbortError") console.log(err.message);
-          setError(err.message);
+          if (err.name !== "AbortError") {
+            console.log(err.message)
+            setError(err.message);
+          }
         } finally {
           setIsLoading(false);
         }
