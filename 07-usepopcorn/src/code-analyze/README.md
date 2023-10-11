@@ -14,7 +14,9 @@ if the condition was true then it will render the index values of the array that
 # a communication between the MovieDetails component and WatchedMovie component:
 
 1 - we have a prop called onAddWatched which is a function in the parent component which returns a new array based on the object that will receives and add the new object to a new array that has the previous values it means => [old values, + new value]
+
 2 - in MovieDetails component we destruct the onAddWatched prop and in another function called handleAdd we will call the prop and save a new value to it which is:
+
 const newWatchedMovie = {
 imdbID: selectedId,
 title,
