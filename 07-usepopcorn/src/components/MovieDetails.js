@@ -47,7 +47,7 @@ export default function MovieDetails({
     onCloseMovie();
   }
   useEffect(
-    function () {
+    function () {      
       async function getMovieDetails() {
         setIsLoading(true);
         const res =
@@ -58,6 +58,7 @@ export default function MovieDetails({
         setIsLoading(false);
       }
       getMovieDetails();
+    
     },
     [selectedId, KEY]
   );

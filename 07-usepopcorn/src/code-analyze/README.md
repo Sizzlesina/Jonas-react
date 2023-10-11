@@ -39,9 +39,8 @@ in every componentt we may need some state for rendering something inside the co
 # in line 65 to 76 of MovieDetails component:
 
 
-
   useEffect(
-    
+
     function () {
       if (!title) return;
       document.title = `Movie ${title}`;
