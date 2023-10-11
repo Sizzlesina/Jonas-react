@@ -46,8 +46,26 @@ export default function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
+
   useEffect(
-    function () {      
+    function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+          console.log("CLOSING");
+        }
+      }
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie]
+  );
+
+  useEffect(
+    function () {
       async function getMovieDetails() {
         setIsLoading(true);
         const res =
@@ -58,7 +76,6 @@ export default function MovieDetails({
         setIsLoading(false);
       }
       getMovieDetails();
-    
     },
     [selectedId, KEY]
   );
@@ -70,7 +87,6 @@ export default function MovieDetails({
 
       return function () {
         document.title = "usePopcorn";
-        console.log(`Clean up effect for movie ${title}`);
       };
     },
     [title]

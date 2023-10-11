@@ -65,7 +65,7 @@ export const average = (arr) =>
 const KEY = "9a219123";
 
 export default function AppV2() {
-  const [query, setQuery] = useState("inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -125,9 +125,8 @@ export default function AppV2() {
           setMovies(data.Search);
           setError("");
         } catch (err) {
-          console.error(err.message);
-
-          if (err.name !== "AbortError") setError(err.message);
+          if (err.name !== "AbortError") console.log(err.message);
+          setError(err.message);
         } finally {
           setIsLoading(false);
         }
@@ -139,6 +138,7 @@ export default function AppV2() {
         return;
       }
 
+      handleCloseMovie();
       fetchMovies();
 
       return function () {
