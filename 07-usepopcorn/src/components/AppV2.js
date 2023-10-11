@@ -152,6 +152,7 @@ export default function AppV2() {
             <MovieDetails
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
+              KEY={KEY}
             />
           ) : (
             <>

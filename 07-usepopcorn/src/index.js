@@ -1,10 +1,10 @@
 /** @format */
-
+import {useState} from 'react';
 import React from "react";
 import ReactDOM from "react-dom/client";
 import AppV2 from "./components/AppV2";
+import StarRating from "./components/StarRating";
 import "./index.css";
-// import StarRating from "./components/StarRating";
 
 
 // function Test() {
