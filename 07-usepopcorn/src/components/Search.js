@@ -1,7 +1,7 @@
 /** @format */
 
 
-export default function Search({query,setQuery}) {
+export default function   Search({query,setQuery}) {
 
   return (
     <input
