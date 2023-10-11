@@ -75,4 +75,20 @@ some examples for dependency array:
 
 Update news of the course progress => today im sick and cant work properly
 
+
+* The cleanup function:
+@ - Function that we can return from an effect (optional)  
+@ - Runs on two different ocassions:
+  1 - Before the effect is executed again
+  2 - After a component has unmounted
+
+@ - Necessary whenever the side effect keeps happening after the component has been re-rendered or unmounted 
+
+@ - Each effect should do only one thing! Use one useEffect hook for each side effect. This makes effects easier to clean up.
+
+++ Component renders => Execute effect if dependency array includes update data
+
+++ Component unmounts => Execute cleanup function
+
+
 */
