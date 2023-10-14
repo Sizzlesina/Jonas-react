@@ -34,7 +34,21 @@ export default function MovieDetails({
 
   // /* eslint-disable */
   // if (imdbRating > 8) [isTop, setIsTop] = useState(true);
-  // if (imdbRating > 8) return <p>Greatest ever!</p>;
+  // // if (imdbRating > 8) return <p>Greatest ever!</p>;
+  // const [isTop, setIsTop] = useState(imdbRating > 8); // this way of writing useState wont ever changes the value and the value always gonna be false
+  // useEffect(
+  //   function () {
+  //     setIsTop(imdbRating > 8);
+  //   },
+  //   [imdbRating]
+  // );
+  // // but in this way the value can change and it will be changes by when the imdbRating changes but we shouldnt even useState in the first plave and we can jut use an derived state
+
+  // Derived state
+  const isTop = imdbRating > 8;
+  console.log(isTop);
+
+  // const [avgRating, setAvgRating] = useState(0);
 
   function handleAdd() {
     const newWatchedMovie = {
@@ -49,6 +63,9 @@ export default function MovieDetails({
 
     onAddWatched(newWatchedMovie);
     onCloseMovie();
+    
+    // setAvgRating(Number(imdbRating));
+    // setAvgRating(avgRating => (avgRating + userRating) / 2);
   }
 
   useEffect(
@@ -119,6 +136,7 @@ export default function MovieDetails({
               </p>
             </div>
           </header>
+          {/* <p>{avgRating}</p> */}
           <section>
             <div className='rating'>
               {!isWatched ? (
