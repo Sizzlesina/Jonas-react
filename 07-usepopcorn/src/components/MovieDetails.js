@@ -31,6 +31,10 @@ export default function MovieDetails({
     Director: director,
     Genre: genre,
   } = movie;
+  
+  // /* eslint-disable */
+  // if (imdbRating > 8) [isTop, setIsTop] = useState(true);
+  // if (imdbRating > 8) return <p>Greatest ever!</p>;
 
   function handleAdd() {
     const newWatchedMovie = {
