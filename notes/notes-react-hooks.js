@@ -88,4 +88,6 @@ Refs      ✅                  ❌              ❌              ❌
 
 
 
+Update : 10 videos have been watched and 5 left to the end of lecture (will be seen later).
+
 */
