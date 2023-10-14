@@ -1,5 +1,5 @@
 /** @format */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import Loader from "./Loader";
 
@@ -13,6 +13,17 @@ export default function MovieDetails({
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+
+  const countRef = useRef(0);
+  // let count = 0;
+
+  useEffect(
+    function () {
+      if (userRating) countRef.current++;
+      // if (userRating) count++;
+    },
+    [userRating]
+  );
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
@@ -59,11 +70,14 @@ export default function MovieDetails({
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(" ").at(0)),
       userRating,
+      countRatingDecisions: countRef.current,
+      // count, // the count value always wil be 1 and thats why we use Refs instead of normal varibales
     };
+    console.log(newWatchedMovie);
 
     onAddWatched(newWatchedMovie);
     onCloseMovie();
-    
+
     // setAvgRating(Number(imdbRating));
     // setAvgRating(avgRating => (avgRating + userRating) / 2);
   }
