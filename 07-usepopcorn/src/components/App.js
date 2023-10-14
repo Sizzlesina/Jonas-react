@@ -72,6 +72,8 @@ export default function App() {
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
+
+
   /*
   useEffect(function () {
     console.log("After the initial render");
@@ -96,7 +98,13 @@ export default function App() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
+
   }
+
+ 
+  useEffect(() => {
+    console.log("sjgh");
+  }, []);
 
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
@@ -126,7 +134,7 @@ export default function App() {
           setError("");
         } catch (err) {
           if (err.name !== "AbortError") {
-            console.log(err.message)
+            console.log(err.message);
             setError(err.message);
           }
         } finally {
@@ -159,7 +167,7 @@ export default function App() {
 
       <Main>
         <Box>
-          {/* {isLoading ? <Loader /> : <MovieList movies={movies} />}  keep this piece of code as a refrence*/ } 
+          {/* {isLoading ? <Loader /> : <MovieList movies={movies} />}  keep this piece of code as a refrence*/}
           {isLoading && <Loader />}
           {!isLoading && !error && (
             <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
