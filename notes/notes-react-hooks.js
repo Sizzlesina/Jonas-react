@@ -43,5 +43,21 @@ Many more...
 ! HINT: These rules are automatically enforced by React's ESLint rules
 
 
+* Summary of defining and updating state:
+@ 1 - Creating state:
+Simple => const [count,setCount] = useState(23);
+
+Based on function (lazy evaluation) => const [count,setCount] = useState(
+  () => localStorage.getItem('count') 
+);
+! Function must be pure and accept no arguments. Called only on initial render
+
+@ 2 - Updating state :
+simple => setCount(1000);
+
+Based on current state => setCount( (c) => c + 1);
+! Function must be pure and return next state.
+
+! HINT: Make sure to NOT mutate objects or arrays,but to replace them
 
 */
