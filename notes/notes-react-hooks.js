@@ -60,4 +60,32 @@ Based on current state => setCount( (c) => c + 1);
 
 ! HINT: Make sure to NOT mutate objects or arrays,but to replace them
 
+
+
+* What are Refs:
+@ REF with useRef:
+? Example: const myRef = useRef(23);
+
+@ - "Box" (object) with a mutable .current property that is persisted across renders ("normal" variables are always reset).
+! We can write to and raead from the ref using .current.
+? Example: myRef.current = 1000;
+
+@ - Two big use cases:
+1 - Creating a variable that stays the same between renders (e.g. previous state, setTimeout id , etc.).
+2 - Selecting and storing DOM elements.
+
+
+@ - Refs are for data that is NOT rendered: usually only appear in event handlers or effects, not in JSX (otherwise use state)
+
+@ - Do NOT read write or read .current in render logic (like state)
+
+
+* State VS. Refs:
+    Persists Across     Updating causes     immutable      Asynchronous
+        renders             re-render                        updates
+State     ✅                  ✅              ✅              ✅    
+Refs      ✅                  ❌              ❌              ❌
+
+
+
 */
