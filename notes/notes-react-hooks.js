@@ -90,4 +90,24 @@ Refs      ✅                  ❌              ❌              ❌
 
 Update : 10 videos have been watched and 5 left to the end of lecture (will be seen later).
 
+
+
+
+
+* Reusing logic with custom hooks:
+
+@ - in React we have two type of things which we can reuse => a piece of UI and a piece of Logic
+
+- if we want to reuse a piece of UI we need a component
+
+- if we need to reuse a piece of logic we need to answer one question: Does logic contain any hooks?
+! YES => Custom hooks
+! NO => Regular function
+
+
+* Custom hooks:
+👉 Allow us to reuse non-visual logic in multiple components
+👉 One custom hook should have one purpose, to make it reusable and portable (even across multiple projects)
+👉 Rules of hooks apply for custom hooks too
+ 
 */
