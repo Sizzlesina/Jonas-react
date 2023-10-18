@@ -58,7 +58,6 @@ export default function MovieDetails({
 
   // Derived state
   const isTop = imdbRating > 8;
-  console.log(isTop);
 
   // const [avgRating, setAvgRating] = useState(0);
 
@@ -74,7 +73,6 @@ export default function MovieDetails({
       countRatingDecisions: countRef.current,
       // count, // the count value always wil be 1 and thats why we use Refs instead of normal varibales
     };
-    console.log(newWatchedMovie);
 
     onAddWatched(newWatchedMovie);
     onCloseMovie();
