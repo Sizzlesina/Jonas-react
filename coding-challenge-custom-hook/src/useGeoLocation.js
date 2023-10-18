@@ -27,6 +27,7 @@ export function useGeoLocation() {
       }
     );
   }
+  // Done
 
   return { isLoading, position, getPosition, error };
 }
