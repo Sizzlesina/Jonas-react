@@ -72,8 +72,6 @@ export default function App() {
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
-
-
   /*
   useEffect(function () {
     console.log("After the initial render");
@@ -98,10 +96,8 @@ export default function App() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
-
   }
 
- 
   useEffect(() => {
     console.log("sjgh");
   }, []);
@@ -141,25 +137,25 @@ export default function App() {
           setIsLoading(false);
         }
       }
-
+      
       if (query.length < 3) {
         setMovies([]);
         setError("");
         return;
       }
-
+      
       handleCloseMovie();
       fetchMovies();
-
+      
       return function () {
         controller.abort();
       };
     },
     [query]
-  );
-
-  return (
-    <>
+    );
+    
+    return (
+      <>
       <Navbar>
         <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
