@@ -25,7 +25,7 @@ class Counter extends React.Component {
   }
 
   render() {
-    const date = new Date("june 21 2027");
+    const date = new Date("june 2 2027");
     date.setDate(date.getDate() + this.state.count);
 
     return (
