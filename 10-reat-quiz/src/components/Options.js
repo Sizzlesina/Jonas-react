@@ -11,8 +11,8 @@ function Options({ questions, dispatch, answer }) {
             hasAnswered
               ? index === questions.correctOption
                 ? "correct"
-                : "wrong"
-              : ""
+                : "wrong" // else of index
+              : "" // else of hasAnswered
           }`}
           key={option}
           disabled={answer !== null}
