@@ -31,4 +31,50 @@ reducer =>  Who makes the update
 state => What needs to be updated
 action => How to make the update
 
+
+
+* useState VS useReducer
+@ useState:
+- Ideal for single,independent,pieces of state (numbers,strings,single arrays,etc.)
+
+- Logic to update state is placed directly in event handlers or effects, spread all over one or multiple components
+
+- State is updated by calling setState (setter returned from useState)
+
+- imperative state updates
+
+- Easy to understand and to use
+@ useReducer:
+- Ideal for multiple related pieces of state and complex state (e.g. object with many values and nested objects and arrays)
+
+- logic to update state lives in one central place, decoupled from components: the reducer
+
+- State is updated by dispatching an action to a reducer 
+
+- Declarative state updates: complex state transitions are mapped to actions
+
+- More difficult to understand and implement
+
+* When to use useReducer?
+@ - Just one piece of state ?
+@ yes => use useState
+--------------------------------------------------
+@ No => Do states frequently updates together?
+-------------------------------------------------
+?? #1 Yes => Are you willing to implement slightly more complex code? 
+--------------------------------------------------
+! Yes => use useReducer
+! No => use useState
+---------------------------------------------------
+?? No => Over 3 or 4 pieces of related state,including objects?
+----------------------------------------------------
+++ Yes => #1 (read from the hashed part)
+++ No => Too many event handlers make components large and confusing?
+----------------------------------------------------
+Yes => #1 (read from the hashed part)
+No => use useState
+
+
+! HINT: useState should remain your default choice for managing state 
+
 */
