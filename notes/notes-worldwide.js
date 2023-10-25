@@ -58,4 +58,21 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
       </Routes>
     </BrowserRouter>
   );
+
+* Styling options in React:
+@ - Styling => React doesnt care about styling
+1 - Inline CSS => Where? : JSX elements How? : style prop Scope: JSX element Based on: css
+! Local
+
+2 - CSS or Sass file => Where? : External file How? : className prop Scope: Entire app Based on: css
+! Global,cause problems
+
+3 - CSS Modules => Where? : One external file per component How? : className prop Scope: Component Based on: css
+
+4 - CSS-in-JS => Where? : External file or component file How? : creates new component Scope: component Based on: JavaScript
+
+5 - Utility-first-CSS (tailwind) => Where? : JSX elements How? : className prop Scope: JSX element Based on: css
+
+6 - Alternative to styling with CSS : UI libraries like MUI,Chakra UI ,Mantine , etc.
+
 */
