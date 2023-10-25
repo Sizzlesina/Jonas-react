@@ -2,6 +2,7 @@
 
 function Options({ questions, dispatch, answer }) {
   const hasAnswered = answer !== null;
+  console.log(questions)
 
   return (
     <div className='options'>
@@ -15,7 +16,7 @@ function Options({ questions, dispatch, answer }) {
               : "" // else of hasAnswered
           }`}
           key={option}
-          disabled={answer !== null}
+          disabled={hasAnswered}
           onClick={() => dispatch({ type: "newAnswer", payload: index })}>
           {option}
         </button>
