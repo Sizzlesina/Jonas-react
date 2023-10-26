@@ -81,9 +81,9 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 * How to setup a fake API:
 1 - npm install json-server
-2 - in the package.json file in the scripts write: "server" : "json-server --watch (data direcroty) --port 9000(or whatever) -delay 500(its for delaying the API fetch"
+2 - in the package.json file in the scripts write: "server" : "json-server --watch (data direcroty) --port 9000(or whatever) --delay 500(its for delaying the API fetch"
 for example:
-"server": "json-server --watch data/cities.json --port 9000 -delay 500"
+"server": "json-server --watch data/cities.json --port 9000 --delay 500"
 3 - npm run server 
 
 */
