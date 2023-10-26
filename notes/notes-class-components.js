@@ -9,7 +9,7 @@
 - Returning JSX : return JSX from function
 ++ 🏆 Advantages :
 1 - Lifecycle might be easier to understand for beginners 
-@ - Clsas components:
+@ - Class components:
 - How to create : ES6 classes,extending React.component
 - Reading props : this.props.X
 - Localstate : this.setState()
