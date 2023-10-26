@@ -23,7 +23,7 @@ function CountriesList({ cities, isLoading }) {
         <CountryItem country={country} />
       ))}
     </ul>
-  );
+  ); 
 }
 
 export default CountriesList;
