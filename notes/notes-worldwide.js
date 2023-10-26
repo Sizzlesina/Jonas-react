@@ -75,4 +75,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 6 - Alternative to styling with CSS : UI libraries like MUI,Chakra UI ,Mantine , etc.
 
+
+! HINT: <Outlet /> will work exactly as same as the {child} element but for routes
+
 */
