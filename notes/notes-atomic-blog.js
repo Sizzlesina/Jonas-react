@@ -96,4 +96,87 @@ when to use: Storing data in user's browser
 ! tools highly specialized in handling remote state like : 
 - React Query ,SWR and RTK Query
 
+
+* How to use context?:
+! First method:
+@ - first: 
+- create a variable and then use the createContext hook for that 
+@ second:
+- open a component and then cover the part that you want to set the values for that in a open and closed component like this:
+@ third:
+- use the useContext hook whenever we want to use the values and then destruct the values and use them (as the name that we set them at the first place)
+
+++ Example:
+@ App component:
+const [city,setCity] = useState();
+export const Context = createContext();
+return(
+<Context.Provider value={{
+  city,
+  setCity
+}}>
+<Main />
+</Context.Provider>
+);
+@ Main component:
+import {useContext} from 'react';
+import {Context} from './App';
+const {city,setCity} = useContext(Context);
+! And then use the context value and avoid prop drilling
+
+
+
+! Second method:
+@ first:
+- create a custom component named the (whatever)Context
+@ second:
+- create the context inside the component and use all state and effects inside the component
+@ third:
+- in the JSX part of the component create the open and closed component for the context and set the values inside of it
+@ fourth:
+- create another function inside the component to use the context and then return the context (set a condition for whent we dont have access to the context and the context is undefined)
+@ fifth:
+- export the context function and the useContext function
+@ sixth:
+- whenever we want to use the values of the context just import the useContext function then destruct the values
+
+++ Example:
+@ CitiesContext.js:
+- import {useContext,createContext,useState} from 'react';
+const CitiesContext = createContext();
+function CitiesProvider({children}){
+const [city,setCity] = useState();
+return (
+  <CitiesContext.Provider value={{
+    city,
+    setCity
+  }}>
+  {children}
+  </CitiesContext.Provider>
+)
+}
+function useCities(){
+  const context = useContext(CitiesContext);
+  if(context === undefined) throw new Error("CitiesContext used outside of the CitiesProvider");
+  return context;
+}
+export { CitiesProvider, useCities }
+
+@ App component:
+import {CitiesProvider} from './CitiesContext';
+function App(){
+  return (
+    <CitiesProvider>
+    <Main />
+    </CitiesProvider>
+  )
+}
+
+@ Main component:
+import {useCities} from './CitiesContext';
+function Main(){
+  const {city,setCity} = useCities();
+  ! Now we can use the state without prop drilling
+}
+
 */
