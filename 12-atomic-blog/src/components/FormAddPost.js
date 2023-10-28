@@ -1,14 +1,17 @@
 /** @format */
 
 import { useState } from "react";
+import { useContext } from "react";
+import { PostContext } from "../App";
 
- function FormAddPost({ onAddPost }) {
+function FormAddPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const { onAddPost } = useContext(PostContext);
 
   const handleSubmit = function (e) {
     e.preventDefault();
-    if (!body || !title) return;  
+    if (!body || !title) return;
     onAddPost({ title, body });
     setTitle("");
     setBody("");

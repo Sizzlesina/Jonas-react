@@ -1,11 +1,13 @@
 /** @format */
 
-import  List  from "./List";
 
-export function Posts({ posts }) {
+import List from "./List";
+
+export function Posts() {
+
   return (
     <section>
-      <List posts={posts} />
+      <List />
     </section>
   );
 }
