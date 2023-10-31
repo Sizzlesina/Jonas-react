@@ -6,7 +6,6 @@ import Button from "./Button";
 
 function Map() {
   const navigate = useNavigate();
-
   const [searchParams, setSearchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
@@ -20,7 +19,7 @@ function Map() {
       <Button
         type='position'
         onClick={() => {
-          setSearchParams({ lat: 23, lng: 15 });
+          setSearchParams({ lat: 12, lng: 15 });
         }}>
         Change pos
       </Button>
