@@ -2,6 +2,7 @@
 
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
+import Button from "./Button";
 
 function Map() {
   const navigate = useNavigate();
@@ -16,12 +17,13 @@ function Map() {
       <h1>
         Position: {lat}, {lng}
       </h1>
-      <button
+      <Button
+        type='position'
         onClick={() => {
           setSearchParams({ lat: 23, lng: 15 });
         }}>
         Change pos
-      </button>
+      </Button>
     </div>
   );
 }
