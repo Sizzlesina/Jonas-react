@@ -47,6 +47,8 @@ export default defineConfig({
 });
 
 * How to use the routers:
+1- npm install react-router-dom
+2-
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
  <BrowserRouter>
