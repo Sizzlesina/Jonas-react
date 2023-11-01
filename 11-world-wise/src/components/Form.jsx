@@ -49,7 +49,7 @@ function Form() {
               "That doesn't seem to be a city, Click somewhere else 😉 "
             );
 
-          setCityName(data.city || data.locality || "");
+          setCityName(data.city || "");
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
           console.log(data);

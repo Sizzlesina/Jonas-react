@@ -18,13 +18,14 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 
 function Map() {
   const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([100,2000]);
+  const [mapPosition, setMapPosition] = useState([40,0]);
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,
     getPosition,
   } = useGeolocation();
   const [mapLat, mapLng] = useUrlPosition();
+// problem checking in process
 
   useEffect(
     function () {
