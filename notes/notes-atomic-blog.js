@@ -179,4 +179,8 @@ function Main(){
   ! Now we can use the state without prop drilling
 }
 
+
+* Profiler developer tool:
+@ is used for tracking the re-renders of the components
+
 */
