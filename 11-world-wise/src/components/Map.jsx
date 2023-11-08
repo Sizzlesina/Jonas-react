@@ -18,14 +18,14 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 
 function Map() {
   const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([40,0]);
+  const [mapPosition, setMapPosition] = useState([40, 0]);
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,
     getPosition,
   } = useGeolocation();
   const [mapLat, mapLng] = useUrlPosition();
-// problem checking in process
+  // problem checking in process
 
   useEffect(
     function () {
@@ -61,6 +61,7 @@ function Map() {
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}>
+            z
             <Popup>
               <span>{city.emoji}</span>
               <span>{city.cityName}</span>
