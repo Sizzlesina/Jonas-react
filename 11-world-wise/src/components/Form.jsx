@@ -47,13 +47,13 @@ function Form() {
           setIsLoadingGeocoding(true);
           setGeocodingError("");
           const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longtiude=${lng}`
+            `${BASE_URL}?latitude=${lat}&longitude=${lng}`
           );
 
           const data = await res.json();
           if (!data.countryCode)
             throw new Error(
-              "That doesn't seem to be a city, Click somewhere else 😉 "
+              "That doesn't seem to be a city. Click somewhere else 😉 "
             );
 
           setCityName(data.city || data.locality || "");
@@ -88,13 +88,14 @@ function Form() {
 
   if (isLoadingGeocoding) return <Spinner />;
 
-  if (!lat && !lng) return <Message message='Start by clicking on the map' />;
+  if (!lat && !lng) return <Message message='Start by clicking somewhere on the map' />;
 
   if (geoCodingError) return <Message message={geoCodingError} />;
 
   return (
     <form
-      className={`${styles.form} ${isLoading ? "loading" : ""}`}
+      className={`${styles.form} ${isLoading ? 
+      styles.loading : ""}`}
       onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor='cityName'>City name</label>
