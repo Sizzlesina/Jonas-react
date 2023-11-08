@@ -8,6 +8,7 @@ import Spinner from "./Spinner";
 import BackButton from "./BackButton";
 
 const formatDate = (date) =>
+  // this method is for date formating
   new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "long",
@@ -16,7 +17,11 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
+  // get the id from the parameters which we passed to it in the cityItem component
   const { id } = useParams();
+  // get the states from the useCities context which:
+  //  getCity : a function that get the city object and set that in the currentCity state
+  // currentCity : a state that contains the current city
   const { getCity, currentCity, isLoading } = useCities();
 
   useEffect(
@@ -25,7 +30,6 @@ function City() {
     },
     [id]
   );
-
   const { cityName, emoji, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;
@@ -62,7 +66,7 @@ function City() {
       </div>
 
       <div>
-      <BackButton />
+        <BackButton />
       </div>
     </div>
   );

@@ -17,24 +17,32 @@ import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 
 function Map() {
+  // get the state from the context values
   const { cities } = useCities();
+
+  // local state
   const [mapPosition, setMapPosition] = useState([40, 0]);
+  // values that we get from the useGeolocation custom hook
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,
     getPosition,
   } = useGeolocation();
+  // get the lat and lng from the parameters that we set in the CityItem component
   const [mapLat, mapLng] = useUrlPosition();
-  // problem checking in process
 
+  // useEffect commands will executed on every lat and lng change values
   useEffect(
     function () {
+      // if there is an lat and lng
       if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
     },
     [mapLat, mapLng]
   );
+  // useEffect commands will executed on every geoLocationPosition change value
   useEffect(
     function () {
+      // if there is and geoLocationPosition
       if (geoLocationPosition)
         setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
     },

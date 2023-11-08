@@ -8,11 +8,15 @@ const formatDate = (date) =>
     month: "long",
     year: "numeric",
   }).format(new Date(date));
-
+// destruct all the cities inisde the city from the cityList component
 function CityItem({ city }) {
+  // get the states from the context values
   const { currentCity, deleteCity } = useCities();
+  // destruct the values we need from every city
   const { cityName, emoji, date, id, position } = city;
 
+
+  // delete the city data from the API
   function handleClick(e) {
     e.preventDefault();
     deleteCity(id);
