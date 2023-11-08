@@ -43,7 +43,7 @@ function reducer(state, action) {
     case "rejected":
       return {
         ...state,
-        isLoading: false,
+        isLoading: false, 
         error: action.payload,
       };
     default:
