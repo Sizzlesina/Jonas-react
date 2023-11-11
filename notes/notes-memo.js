@@ -55,4 +55,31 @@
 
 @ - Only makes sense when the component is heavy (slow rendering) re-renders often, and does so with the same props
 
+
+* An issue with memo:
+@ - In React, everything is re-created on every render (including objects and functions)
+
+@ - In javascript, two objects or functions that look the same, are actually different ( {} != {} ) 
+
+@ - Therefore => If objects or functions are passed as props, the child component will always see them as new props on each re-render
+
+@ - If props are different between re-renders, memo will not work
+
+++ Soluton: We need to memoize objects and funcitons, to make them stable (preserve) between re-renders (memoized {} == memoized {} )
+
+
+* Two new hooks(useMemo and useCallback):
+@ - Used to memoize values (useMemo) and functions (useCallback) between renders
+
+@ - Values passed into useMemo and useCallback will be stored in memory ("cached") and returned in subsequent re-renders, as long as dependencies ("Inputs") stay the same
+
+@ - useMemo and useCallback have a dependency array (like useEffect) whenever one dependency changes, the value will be re-created
+
+* Three big use cases:
+1 - Memoizing props to prevent wasted renders (together with memo)
+
+2 - Memoizing values to avoid expensive re-calculations on every render
+
+3 - Memoizing values that are used in dependency array of another hook
+++ For example to avoid infinite useEffect loops
 */
