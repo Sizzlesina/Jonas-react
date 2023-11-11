@@ -76,6 +76,8 @@
 @ - useMemo and useCallback have a dependency array (like useEffect) whenever one dependency changes, the value will be re-created
 
 @ - Only use them for one of the three use cases!
+
+
 * Three big use cases:
 1 - Memoizing props to prevent wasted renders (together with memo)
 
