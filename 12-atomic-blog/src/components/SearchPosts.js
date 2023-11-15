@@ -1,5 +1,5 @@
 /** @format */
-import { usePosts } from "../components/PostContext";
+import { usePosts } from "../PostContext";
 
 function SearchPosts() {
   const { setSearchQuery, searchQuery } = usePosts();

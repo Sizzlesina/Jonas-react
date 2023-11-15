@@ -1,7 +1,7 @@
 /** @format */
 
 import { useState } from "react";
-import { usePosts } from "./PostContext";
+import { usePosts } from "../PostContext";
 
 function FormAddPost() {
   const [title, setTitle] = useState("");

@@ -1,7 +1,7 @@
 /** @format */
 
-import { usePosts } from "./PostContext";
-import Test from "./Test";
+import { usePosts } from "../PostContext";
+import Test from "../Test";
 
 function List() {
   const { posts } = usePosts();

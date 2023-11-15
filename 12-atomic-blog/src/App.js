@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Archive from "./components/Archive";
 import Main from "./components/Main";
-import { PostProvider } from "./components/PostContext";
+import { PostProvider } from "./PostContext";
 // 1) Create a new context
 
 function App() {

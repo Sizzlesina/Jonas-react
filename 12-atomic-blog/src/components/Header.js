@@ -2,7 +2,7 @@
 
 import SearchPosts from "./SearchPosts";
 import Results from "./Results";
-import { usePosts } from "./PostContext";
+import { usePosts } from "../PostContext";
 function Header() {
   // 3) Consuming the context value
 
