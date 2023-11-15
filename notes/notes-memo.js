@@ -112,4 +112,10 @@
 - React guaranteesthat the setter functions ogf the useState hook always have a stable identity which means it doesnt change on renders
 
 - memoization is used for heavy components in heavy projects
+
+
+* The bundle and code splitting:
+@ - Bundle: JavaScript file containing the entire application code. Downloading the bundle will laod the entire app at once, turnin it into a SPA
+
+ 
 */
