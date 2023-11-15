@@ -99,11 +99,16 @@
   ...commands
 })
 - const objectName = useMemo(() => {
-  return {
+  return {  
     ...options
   }
 },[dependency array])
 - const callbackVariableName = useCallback(function functionName(){
   ...commands
 },[dependency array])
+
+++ In the course jonas passed in a setIsFakeDark prop to the Archive component but nothing changes (atomic blog)
+@ Reason to that:
+- React guaranteesthat the setter functions ogf the useState hook always have a stable identity which means it doesnt change on renders
+
 */
