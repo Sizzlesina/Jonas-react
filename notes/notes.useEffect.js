@@ -90,5 +90,38 @@ Update news of the course progress => today im sick and cant work properly
 
 ++ Component unmounts => Execute cleanup function
 
+* useEffect dependency array rules:
+- Every state variable, prop, and context value used inside the effect MUST be included in the dependency array
 
+- All "reactive values" must be included! That means any function or variable that refrence any other reactive value   
+
+- Dependencies choose themselves: NEVER ignore the exhaustive-deps ESLint rule!
+
+- Do NOT use objects or arrays as dependencies (objects are recreated on each render, and React sees new objects as different, {} !== {} )
+
+++ The same rules apply to the dependency arrays of other hooks: useMemo and useCallback
+
+@ Reactive value: 
+- State,prop,or context value or any other value that refrences a reactive value
+
+* Removing unnecessary dependencies:
+@ 🤖 - Removing function dependencies
+👉 Move function into the effect
+👉 If you need the function in multiple places,memoize it (useCallback)
+👉 If the function doesn't refrence any reactive values,move it out of the component
+
+@ 📦 - Removing objects dependencies
+👉 Instead of including the entire object,include only properties you need (primitive values)
+👉 If that doesn't work,use the same strategies as for functions (moving or memoizing object)
+
+@ 🎯 - Other strategies
+👉 If you have multiple related reactive values as dependencies,try using a reducer (useReducer)
+👉 If you dont need to include setState (from useState) and dispatch (from useReducer) in the dependencies, as React guarantees them to be stable across renders
+
+* When not to use an effect:
+- Effects should be used as a last resort,when no other solution makes sense, React calls them an "escape hatch" to step outside of React
+@ Three cases where effects are overused:
+1 - Responding to a user event.An event handler function should be used instead
+2 - Fetching data on component mount. This is fine in small apps,but in real-world app,a library like React Query should be used
+3 - Synchronizing state changes with one another (setting state based on another state variable). Try to use derived state and event handlers (We actually do this in the current projects,but for a good reason)
 */
