@@ -33,8 +33,11 @@
 
 
 
-- When we have a component inside an another component and we dont the inside component to be re-rendered we can simply just pass in the component as a children prop to the other component and put it in the component as a child
-
+- When we have a component inside an another component and we dont want the inside component to be re-rendered we can simply just pass in the component as a children prop to the other component and put it in the component open and closed tag as a children
+++ For example:
+<Parent component>
+<Children component />
+</Parent component>
 
 * Underestanding memo:
 @ What is memoization?
@@ -51,7 +54,7 @@
 * The memo function:
 @ - Used to create a component that will not re-render when its parent re-renders, as long as the props stay the same between renders - Memoized component
 
-@ - Only affect props! A memoized component will still re-render when its own state changes or when a context that it's subscibed to changes
+@ - Only affect props! A memoized component will still re-render when its own state changes or when a context that it's subscribed to changes
 
 @ - Only makes sense when the component is heavy (slow rendering) re-renders often, and does so with the same props
 
@@ -85,4 +88,5 @@
 
 3 - Memoizing values that are used in dependency array of another hook
 ++ For example to avoid infinite useEffect loops
+
 */
