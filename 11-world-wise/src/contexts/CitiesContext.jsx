@@ -1,5 +1,6 @@
 /** @format */
 
+import { useCallback } from "react";
 import { createContext, useContext, useEffect, useReducer } from "react";
 const BASE_URL = "http://localhost:9000";
 
@@ -43,7 +44,7 @@ function reducer(state, action) {
     case "rejected":
       return {
         ...state,
-        isLoading: false, 
+        isLoading: false,
         error: action.payload,
       };
     default:
@@ -77,23 +78,26 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
   // get the city data based on id
-  async function getCity(id) {
-    try {
-      dispatch({ type: "loading" });
-      // Different API
-      // the data in this case is the city object with the id passed to the parameters
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await res.json();
-      // set the data into another object which is a state
-      dispatch({ type: "city/loaded", payload: data });
-    } catch {
-      // error handling
-      dispatch({
-        type: "rejected",
-        payload: "There was an error loading the city...",
-      });
-    }
-  }
+  const getCity = useCallback(
+    async function getCity(id) {
+      try {
+        dispatch({ type: "loading" });
+        // Different API
+        // the data in this case is the city object with the id passed to the parameters
+        const res = await fetch(`${BASE_URL}/cities/${id}`);
+        const data = await res.json();
+        // set the data into another object which is a state
+        dispatch({ type: "city/loaded", payload: data });
+      } catch {
+        // error handling
+        dispatch({
+          type: "rejected",
+          payload: "There was an error loading the city...",
+        });
+      }
+    },
+    [currentCity.id]
+  );
 
   async function createCity(newCity) {
     try {
