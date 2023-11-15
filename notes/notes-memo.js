@@ -111,4 +111,5 @@
 @ Reason to that:
 - React guaranteesthat the setter functions ogf the useState hook always have a stable identity which means it doesnt change on renders
 
+- memoization is used for heavy components in heavy projects
 */
