@@ -89,4 +89,21 @@
 3 - Memoizing values that are used in dependency array of another hook
 ++ For example to avoid infinite useEffect loops
 
+
+
+- memo => for components re-render (slow rendering)
+- useMemo => for objects re-render (slow rendering)
+- useCallback => for functions re-render (slow rendering)
+++ Example:
+- const componentName = memo(function ComponentName({props}){
+  ...commands
+})
+- const objectName = useMemo(() => {
+  return {
+    ...options
+  }
+},[dependency array])
+- const callbackVariableName = useCallback(function functionName(){
+  ...commands
+},[dependency array])
 */
