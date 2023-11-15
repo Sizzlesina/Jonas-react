@@ -124,4 +124,38 @@
 
 ! SPA = single page applications
 
+
+@ DONT OPTIMIZE PREMATURELY!:
+
+< DON'T >
+
+ ! Dont optimize prematurely 
+
+! Dont optimize anything if there is nothing to optimize...
+
+! Dont wrap all components in memo()
+
+! Dont wrap all values in useMemo()
+
+! Dont wrap all functions in useCallback()
+
+! Dont optimize context if its not slow and doesnt have many consumers
+
+< DO >
+
+* Find performance bottlenecks using the profiler and visual inspection (laggy UI)
+
+* Fix those real performance issues
+
+* Memoizing expensive re-renders
+
+* Memoize expensive calculations
+
+* Optimize context if it has many consumers and changes often
+
+* Memoize context value + child components
+
+* Implement code splitting + lazy loading for SPA routes
+
+
 */
