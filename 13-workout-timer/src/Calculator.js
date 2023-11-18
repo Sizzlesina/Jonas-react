@@ -1,6 +1,6 @@
 /** @format */
 
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import clickSound from "./ClickSound.m4a";
 
 function Calculator({ workouts, allowSound }) {
@@ -31,7 +31,7 @@ function Calculator({ workouts, allowSound }) {
 
   useEffect(
     function () {
-      const playSound =  function () {
+      const playSound = function () {
         if (!allowSound) return;
         const sound = new Audio(clickSound);
         sound.play();
@@ -40,9 +40,17 @@ function Calculator({ workouts, allowSound }) {
       playSound();
     },
 
-    [duration,allowSound]
+    [duration, allowSound]
   );
 
+  useEffect(
+    function () {
+      // console.log(duration, sets); // stale state => the value that it will shown will be outdated because we didnt add them to the dependency array
+
+      document.title = `Your ${number}-exercise workout`;
+    },
+    [number]
+  );
   const mins = Math.floor(duration);
   const seconds = (duration - mins) * 60;
 
@@ -61,7 +69,7 @@ function Calculator({ workouts, allowSound }) {
       <form>
         <div>
           <label>Type of workout</label>
-          <select value={number} onChange={(e) => setNumber(+e.target.value)}>
+          <select value={number} onChange={(e) => setNumber(e.target.value)}>
             {workouts.map((workout) => (
               <option value={workout.numExercises} key={workout.name}>
                 {workout.name} ({workout.numExercises} exercises)
