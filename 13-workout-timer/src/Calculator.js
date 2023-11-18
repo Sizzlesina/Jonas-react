@@ -45,7 +45,6 @@ function Calculator({ workouts, allowSound }) {
 
   useEffect(
     function () {
-      // console.log(duration, sets); // stale state => the value that it will shown will be outdated because we didnt add them to the dependency array
 
       document.title = `Your ${number}-exercise workout`;
     },
