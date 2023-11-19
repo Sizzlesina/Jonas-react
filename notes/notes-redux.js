@@ -108,4 +108,6 @@ Reducers need to be pure functions
 @ The most popular middleware in Redux is (Redux Thunk)
 
 - In thunk the action that we dispatched in the component will immediately dispatched and then get into the middleware (Thunk) then we start fetching data into the thunk but it can be also other asynchronous operation (but lets stick to the data fetching) then we dispatch the function into the store and the state will be updated 
+
+
 */ 
