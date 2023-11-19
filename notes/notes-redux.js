@@ -109,5 +109,13 @@ Reducers need to be pure functions
 
 - In thunk the action that we dispatched in the component will immediately dispatched and then get into the middleware (Thunk) then we start fetching data into the thunk but it can be also other asynchronous operation (but lets stick to the data fetching) then we dispatch the function into the store and the state will be updated 
 
-
+* What is Redux tookit?
+@ - The modern and prefered way of writing Redux code
+@ - An opinionated approach, forcing us to use Redux best practices
+@ - 100% compatible with "classic" Redux, allowing us to use them together
+@ - Allows us to write a lot less code to achieve the same result (less "boilerplate")
+@ - Gives us three big things (but there are many more...):
+1 - We can write code that "mutates" state inside reducers (will be converted to immutable logic behind the scenes by "Immer" library)
+2 - Action creators are automatically created
+3 - Automatic setup of thunk middleware and devtools
 */ 
