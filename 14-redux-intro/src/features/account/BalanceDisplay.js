@@ -20,3 +20,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(BalanceDisplay);
+// this is the old way of connecting props from Redux to the components and in the modern way we dont use the connect API instead we use useSelector and useDispatch methods
