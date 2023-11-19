@@ -68,8 +68,24 @@
 1 - npm i react-redux
 2 - in the index.js file import the {Provider} from 'react-redux' and the store file that we created
 3 - Cover the <App /> component into the <Provider /> tag and then pass in the store into a store={} prop of the <Provider />
-4 - in the component that you want to use the redux import {useSelector} from 'react-redux'
-5 - useSelector(store => store.(REDUCER THAT YOU WANT TO USE).(PROPERTY THAT YOU WANT TO USE) )
-6 - save the above line of code into a variable like this:
+@ Whenever we want to use the Redux reducer states:
+1 - in the component that you want to use the redux import {useSelector} from 'react-redux'
+2 - useSelector(store => store.(REDUCER THAT YOU WANT TO USE).(PROPERTY THAT YOU WANT TO USE) )
+3 - save the above line of code into a variable like this:
 const account = useSelector(store => store.account.balance)
+4 - USE
+@ Whenever we want to use dispatch from the Redux and do something to the action:
+1 - import {useDispatch} from 'recat-redux'
+2 - const dispatch = useDispatch()
+3 - import the dispatch function that you want to use from the Redux reducer file 
+4 - USE it like this: 
+
+import {useDispatch} from 'react-redux'
+import {createCustomer} from 'customerSlice';
+const dispatch = useDispatch();
+
+function handleClick(){
+  dispatch(createCustomer());
+}
+
 */ 
