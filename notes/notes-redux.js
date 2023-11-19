@@ -47,4 +47,29 @@
 
 ++ Goal : Make the state update logic seperate from  the rest of the application 
 ? Real world task: Depositing $50 into your bank account
+
+* For using the createStore and combineReducers methods and something like that:
+@ - npm i redux then import the methods you want
+
+* For using the redux store Provider in the index.js component and then use the store:
+@ - npm i react-redux
+* How to create the Redux hook store and reducer files:
+1 - npm i redux
+2 - a store file and a reducerNameSlice file for each reducer
+3 - in the reducer files write the reducers 
+4 - export default the function name in the reducer files and the handler function as a named export
+5 - in the store file import the createStore and combineReducers and the reducer files
+6 - const rootReducer = combineReducers(favorite name: reducer1 file , favorite name: reducer2 name)
+7 - const store = createStore(rootReducer)
+8 - export default store;
+
+
+* How to use the Redux:
+1 - npm i react-redux
+2 - in the index.js file import the {Provider} from 'react-redux' and the store file that we created
+3 - Cover the <App /> component into the <Provider /> tag and then pass in the store into a store={} prop of the <Provider />
+4 - in the component that you want to use the redux import {useSelector} from 'react-redux'
+5 - useSelector(store => store.(REDUCER THAT YOU WANT TO USE).(PROPERTY THAT YOU WANT TO USE) )
+6 - save the above line of code into a variable like this:
+const account = useSelector(store => store.account.balance)
 */ 
