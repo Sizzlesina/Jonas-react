@@ -88,4 +88,24 @@ function handleClick(){
   dispatch(createCustomer());
 }
 
+
+* What is Redux middlewear?
+@ - Where to make an asynchronous API call (or any other async operation) in Redux?
+++ In store:
+No asynchronous operations 
+Reducers need to be pure functions
+
+++ So maybe its better to fetch the data in the component and then dispatch an action to the store:
+- this way can make asynchronous operations and then dispatch
+- fetching data in components is not ideal
+
+++ But if not in the store and not in the component then where do we perform asyncronous actions?
+@ Middleware : A function that sits between dispatching the action and the store. Allows to run code after dispatching,but before reaching the reducer in the store:
+- Perfect for asynchronous code
+- API calls, timers, logging, etc.
+- The place for side effects
+
+@ The most popular middleware in Redux is (Redux Thunk)
+
+- In thunk the action that we dispatched in the component will immediately dispatched and then get into the middleware (Thunk) then we start fetching data into the thunk but it can be also other asynchronous operation (but lets stick to the data fetching) then we dispatch the function into the store and the state will be updated 
 */ 
