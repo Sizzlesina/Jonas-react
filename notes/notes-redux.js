@@ -63,7 +63,15 @@
 7 - const store = createStore(rootReducer)
 8 - export default store;
 
-
+* How to write the Redux reducers:
+1 - initialState
+2 - export default reducerFunction(){
+  (switch case )
+}
+3 - export function dispatchFunction(){
+  return {type :( whatever that you write in the case and the action for that), payload(if needed) : (Something that you want)}
+}
+++ the dispatch function is a way of updating states and instead of writing them inside another component we will write them inside the reducer file and then use them in the component that we want
 * How to use the Redux:
 1 - npm i react-redux
 2 - in the index.js file import the {Provider} from 'react-redux' and the store file that we created
@@ -118,4 +126,37 @@ Reducers need to be pure functions
 1 - We can write code that "mutates" state inside reducers (will be converted to immutable logic behind the scenes by "Immer" library)
 2 - Action creators are automatically created
 3 - Automatic setup of thunk middleware and devtools
+
+
+* Till this part lets have a summary on whats going on:
+@ - Using the Redux in the old way was to use the createStore and then combine the reducers together and then pass them to the store and whenever we want to use them just use a callback model of calling useSelector and then use the part of the Redux that we want and whenever we want to do some actions to the state use the useDispatch method and then use the dispatch function that we want (already the dispatch function are in the reducer file)
+
+++ But in the old way we learned two new things:
+1 - Redux devtools
+2 - Thunk middleware
+
+@ Thunk: when we want to use a asynchronous function in the reducers of the Redux we will use the middleware (thunk middleware) and then as the second paremeter of the createStore we will pass in the thunk 
+
+* How to use the thunk?:
+1 - npm i redux-thunk
+2 - 
+import thunk from 'redux-thunk';
+import {applyMiddleware} from 'redux';
+3 - const store = createStore(rootReducer,applyMiddleware(thunk))
+
+@ Redux devtools: We can use the Redux devtools in the browser to record the actions done in the application
+
+* How to use Redux devtools?:
+1 - npm i redux-devtools-extension
+2 - import {composeWithDevtools} from 'redux-devtools-extension';
+3 - const store = createStore(rootReducer,composeWithDevtools(applyMiddleware(thunk)))
+
+@ Now we want to use the Redux toolkit to create the store and this is the modern way of using Redux and the createStore is dupricated:
+1 - npm i @reduxjs/toolkit
+2 - import {configureStore} from '@reduxjs/toolkit'
+3 - const store = configureStore({
+  reducer:{
+    (FIRST REDUCER NAME) : (REDUCER FILE NAME THAT GOT IMPORTED TO THE STORE FILE),
+  },
+});
 */ 
