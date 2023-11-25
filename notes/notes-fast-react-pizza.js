@@ -79,4 +79,8 @@
 @ - UI state management => Redux = State is fairly complex.Redux has many advantages for UI state.Also we want to practice Redux a bit a more
 
 ! HINT: This is just one of many tech stacks we could have chosen:
+
+* Router:
+- Now we can use router with the createBrowerRouter method and we dont need to use components anymore
+
 */
