@@ -191,4 +191,44 @@ import {applyMiddleware} from 'redux';
 
 
 ! HINT: In the example of this section we change the value of the deposit payload inside the deposit function and then we pass in a parameter and then set it to payload value which in here is : amount which is a state
+
+
+
+* Context API VS. Redux:
+@ - Context API + useReducer :
+++ Pros:
+1- 👍 Built into React
+2- 👍 Easy to set up a single context
+++ Cons:
+1- 👎  Additional state "slice" requires new context set up from scratch ("provider hell" in App.js) 
+2- 👎 No mechanism for async operations
+3- 👎 Performace optimization is a pain
+4- 👎 Only React Devtools
+@ - Redux:
+++ Cons:
+1-  👎 Requires additional package (larger bundle size)
+2- 👎 More work to set up initially
+++ Pros:
+1- 👍 Once set up, its easy to create additional state "slices"
+2- 👍 Supports middleware for async operations
+3- 👍 Performance is optimized out the box
+4- 👍 Excellent Devtools
+
+! HINT: Keep in mind that we should not use these solutions for remote state
+
+* When to use Context API or Redux?
+@ - Context ApI + useReducer:
+
+- "Use the context API for global state management in small apps"
+- 👉 When you just need to share a value that doesnt change often [color theme,preferred language,authenticated user,...]
+- 👉 When you need to solve a simple prop drilling problem
+- 👉 When you need to manage state in a local sub-tree of the app (For example in the compound component pattern)
+
+@ - Redux (These are not super common in UI state):
+
+- "Use Redux for global state management in large apps"
+- 👉 When you have lots of global UI state that needs to be updated freqeuntly (because Redux is optimized for this) [Shopping cart,current tabs,complex filters or search,...]
+- 👉 When you have complex state with nested objects and arrays (because you can mutate state with Redux Toolkit)
+
+++ Warning: There is no right answer that lifts every project.it all depends on the project needs!
 */ 
