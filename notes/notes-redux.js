@@ -183,4 +183,12 @@ import {applyMiddleware} from 'redux';
 ++ Example:
 @ export const {increment,decrement} = accountSlice.actions;
 @ export default accountSlice.reducer;
+
+* How to use thunks in Redux toolkit:
+@ - In order to use the thunks in Redux toolkit we can use the create async thunk function that Redux toolkit provides us however using this function is a lot of extra work because the easier solution is to use the action creator function that we already used before
+
+
+
+
+! HINT: In the example of this section we change the value of the deposit payload inside the deposit function and then we pass in a parameter and then set it to payload value which in here is : amount which is a state
 */ 
