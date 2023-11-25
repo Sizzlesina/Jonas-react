@@ -29,13 +29,11 @@ const accountSlice = createSlice({
       state.loanPurpose = "";
       state.balance -= state.loan;
     },
-    convertingCurrency(state){
+    convertingCurrency(state) {
       state.isLoading = true;
-
-    }
+    },
   },
 });
-console.log(accountSlice);
 
 export const { withdraw, requestLoan, payLoan } = accountSlice.actions;
 
@@ -54,10 +52,10 @@ export function deposit(amount, currency) {
     dispatch({ type: "account/deposit", payload: converted });
   };
 }
-
+console.log(accountSlice.reducer)
 export default accountSlice.reducer;
+
 /*
-Done 1
 export default function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
     case "account/deposit":
