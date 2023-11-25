@@ -57,7 +57,7 @@ export function deposit(amount, currency) {
 
 export default accountSlice.reducer;
 /*
-Done
+Done 1
 export default function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
     case "account/deposit":
