@@ -18,7 +18,7 @@ const accountSlice = createSlice({
       state.balance -= action.payload;
     },
     requestLoan(state, action) {
-      if (state.loan > 0) return; // this line of code wont return the state and it will just return from the function
+      if (state.loan > 0) return; 
       state.loan = action.payload.amount;
       state.loanPurpose = action.payload.loanPurpose;
       state.balance += action.payload.amount;
@@ -34,7 +34,7 @@ console.log(accountSlice);
 
 export const { deposit, withdraw, requestLoan, payLoan } = accountSlice.actions;
 export default accountSlice.reducer;
-  
+  // Creating the account slice
 /*
 export default function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
