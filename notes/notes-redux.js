@@ -151,7 +151,9 @@ import {applyMiddleware} from 'redux';
 2 - import {composeWithDevtools} from 'redux-devtools-extension';
 3 - const store = createStore(rootReducer,composeWithDevtools(applyMiddleware(thunk)))
 
-@ Now we want to use the Redux toolkit to create the store and this is the modern way of using Redux and the createStore is dupricated:
+@ Now we want to use the Redux toolkit to create the store and this is the modern way of using Redux and the createStore is dupricated
+
+* How to use Redux toolkit?:
 1 - npm i @reduxjs/toolkit
 2 - import {configureStore} from '@reduxjs/toolkit'
 3 - const store = configureStore({
@@ -159,4 +161,26 @@ import {applyMiddleware} from 'redux';
     (FIRST REDUCER NAME) : (REDUCER FILE NAME THAT GOT IMPORTED TO THE STORE FILE),
   },
 });
+
+* How to write the reducer files in the new way of creating store?:
+1 - import {createSlice} from '@reduxjs/toolkit'
+2 - const intialState = {
+  (states)
+}
+3 - const slicaNameSlice = createSlice({
+  name : (NAME THAT WE WANT),
+  initialState : (INITIAL STATE NAME),
+  reducers: {
+    (NAME OF THE REDUCER FUNCTION)(state,action){
+      (IN HERE WE MUST MUTATE THE STATES LIKE THIS => state.loan += state.balance;)
+    }
+  }
+})
+
+++ The case action type name will be as the same structure as before => reducerName/reducerAction
+4 - export const {dispatch-function names} = (Reducer-function name).actions;
+5 - export default (Reducer-function name).reducer;
+++ Example:
+@ export const {increment,decrement} = accountSlice.actions;
+@ export default accountSlice.reducer;
 */ 
