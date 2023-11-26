@@ -5,7 +5,8 @@
 
 ++ 1. Description of a piece of UI
 
-++ 2. A component is a funciton that returns React elements (element tree), usually written as JSX 
+++ 2. A compon
+ent is a funciton that returns React elements (element tree), usually written as JSX 
 ----------------------------------------------------
 * Component instance:
 
