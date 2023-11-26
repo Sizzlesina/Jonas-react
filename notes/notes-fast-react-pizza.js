@@ -83,4 +83,24 @@
 * Router:
 - Now we can use router with the createBrowerRouter method and we dont need to use components anymore
 
+! Some Hints about the new way of writing the React Router:
+1 - we can use the nested routers by using <Outlet /> as same as before but this time instead of writing the nested routes inside together components we can use the children property inside the createBrowserRouter and the route that we want to be the parent route then we can write the children routes inside of it
+
+
+* Something about the loader function inside the React components (when we create a vite project):
+1 - we can use a loader function inside the component to fetch the API that we want whenever we going to the component route 
+
+++ For example:
+function Menu(){
+  return <h1>Menu</h1>
+};
+export async function loader(){
+  const menu = await fetch("some API")
+  return menu; 
+}
+++ Now when we open the route of the component the data will be fetched and else we dont need to fetch the data 
+
+! HINT:
+we wont use it as same as the example above and we should use a custom hook named : useLaoderData() that is a hook inside the react-router-dom so we should install the react-router-dom package and then use this function to load the data whenever we open the component and change the route to the component route
+
 */
