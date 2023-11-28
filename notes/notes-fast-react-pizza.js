@@ -103,4 +103,8 @@ export async function loader(){
 ! HINT:
 we wont use it as same as the example above and we should use a custom hook named : useLaoderData() that is a hook inside the react-router-dom so we should install the react-router-dom package and then use this function to load the data whenever we open the component and change the route to the component route
 
+* Error handling in new React Router method:
+- We can handle wrong routes and show an Error component by writing the errorElement property inside the createBrowserRouter method and then import the Error component
+
+@ Now that we handle the error we can show the Error message as the user opens the wrong route by using a custom hook called useRouteError()
 */
