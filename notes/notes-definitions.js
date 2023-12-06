@@ -146,5 +146,9 @@ export default Counter;
 !HINT: Its better to use a callback function when you want to use the setMethods of the state to have access to the previous values of the state
 
 
-export default Counter;
+* FormData:
+@ This method is getting used for sending data to the API
+- using append we can append a new value to the FormData
+- FormData is a constructor function
+
 */
