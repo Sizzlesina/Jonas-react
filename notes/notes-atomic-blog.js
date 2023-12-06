@@ -41,11 +41,12 @@ value is updated => all consumers re-render
 - Might be needed by many components
 - Accessible to every component in the application  
 ! Which one to choose? "if this component was rendered twice, should a state update on one of them reflect in the other one?" => 
-NO = Local state YES = Global state
+NO = Local state 
+YES = Global state
 
 @ - State Domain:
 ++ 1 - Remote state:
-1 - All application data loaded from a remote server(API)
+1 - All application data loaded from a remote server (API)
 2 - Usually asynchronous
 3 - Needs re-fetching + updating
 ++ 2 - UI state:
