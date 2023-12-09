@@ -4,7 +4,7 @@
 
 1 - 3rd-party library to manage global state
 
-2 - Standalone library, but easy to integrate with React apps using React-Redux library
+2 - Stand alone library, but easy to integrate with React apps using React-Redux library
 
 3 - All global state is stored in one globally accessibale store, which is easy to update using "actions" (like useReducer)
 
@@ -45,7 +45,7 @@
 @ Redux cycle:
 - In order to update global state with Redux,we start by calling an action creator in a component and then dispatch the action will that resulted from the action creator. This action then reach the store where the right reducer will pick it up and update the state according to the instructions. This then triggers a re-render of the UI where the cycle finishes.
 
-++ Goal : Make the state update logic seperate from  the rest of the application 
+++ Goal : Make the state update logic seperate from the rest of the application 
 ? Real world task: Depositing $50 into your bank account
 
 * For using the createStore and combineReducers methods and something like that:
@@ -83,7 +83,7 @@
 const account = useSelector(store => store.account.balance)
 4 - USE
 @ Whenever we want to use dispatch from the Redux and do something to the action:
-1 - import {useDispatch} from 'recat-redux'
+1 - import {useDispatch} from 'react-redux'
 2 - const dispatch = useDispatch()
 3 - import the dispatch function that you want to use from the Redux reducer file 
 4 - USE it like this: 

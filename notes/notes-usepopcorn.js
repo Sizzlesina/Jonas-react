@@ -91,7 +91,7 @@ function Success(){
 
   * the creator will creates the component and define what props the component can accept while the consumer uses the component somewhere in the application by specifying values for the props.
 
- ? if we havve this mindeset(creator and consumer) we can think of the component props as the public API of the component
+ ? if we have this mindeset(creator and consumer) we can think of the component props as the public API of the component
 
 
 * as the creator when we choose what props the consumer is allowed to pass in, we are essentially defining the public interface of our component and at the same time we are choosing how much complexity of the component we want to expose to the consumer of the API because in the end a component is basically just an abstraction so we are encapsulating a part of the UI and the associated logic into a component and allow consumers to interact with that component via props
@@ -99,7 +99,7 @@ function Success(){
 
 ! when we decide about what props to allow in a component we need to find a good balance how strict we want it to be SO about how many props we want to enable for configuration 
 
-? for example lets say were building a weather component so a component that simply displays the weathe we could make it extremely simple for example onyl allowing one prop for the location for which the consumer wants the weather so it might be perfectly fine but it might also make the component not flexible enough or maybe even straight out useless for the consumer
+? for example lets say were building a weather component so a component that simply displays the weather we could make it extremely simple for example only allowing one prop for the location for which the consumer wants the weather so it might be perfectly fine but it might also make the component not flexible enough or maybe even straight out useless for the consumer
 
 ++ on the other hand we could allow props for the URL of the weather data,the number of days , whether it should be daily or hourly,how many days , which temprature unit, what data should be displayed and so on ( we can have too much props) 
 

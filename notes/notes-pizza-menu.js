@@ -27,7 +27,7 @@ lets talk about the Declartive and Imperative type of codes:
 
 Imperative :
   1. Manual DOM element selection and DOM traversing
-  2. Step by step DOM mulations until we reach the desired UI
+  2. Step by step DOM manipulation until we reach the desired UI
   HINT: it's about how to do things
 
 Declarative;
@@ -37,7 +37,7 @@ Declarative;
   HINT: its about what we want
 
 
-we can style our html code in the react like this(But really maybe we dont do that at all):
+we can style our html code in React like this (But in real-world apps maybe we dont do this):
 
 function App() {
   const style = { color: "red", fontSize: "48px", textTransfor: "uppercase" };
@@ -60,7 +60,7 @@ when we want to pass in a jacvascript code like a number in the props you must u
 
 
 
-NOW we want to talk about props;
+* NOW we want to talk about props;
   1. Props are used to pass data from parent components to child components (down the component use)
   2. Essential tool to configure and customize components (like function parameters)
   3. with props, parent components control how child componets look and work
@@ -68,27 +68,27 @@ NOW we want to talk about props;
   5. Props are read-only, they are immutable! this is one of React's strict rules 
   6. If you need to mutate props,you actually need state BECASUE:
     -------------------------------------------------------------------
-    1. mutating props whould effect parent. creating side effects (not pure)
-    2. Components have to be pure functions in terms of props and state
-    3. This allows React to optimize apps, avoid bugs, make app predictable
+   @ 1. mutating props whould effect parent. creating side effects (not pure)
+   @ 2. Components have to be pure functions in terms of props and state
+   @ 3. This allows React to optimize apps, avoid bugs, make app predictable
     -------------------------------------------------------------------
 
-    in React data only can be passed from parent to child element
+   ++ in React data only can be passed from parent to child element
     
 
 
-General rules of JSX:
+* General rules of JSX:
   1. JSX works essentially like HTML, but we can enter "JavaScript mode" by using {} (for text or attributes)
   2. We can place javascript expressions inside {}. Examples: refrence variables, create arrays or objects, [].map(),ternary operator
   3. Statements are not allowed (if/else, for/switch)
   4. JSX produces a javascript expression:
-    1. We can place other pieces of JSX inside {}
-    2. We can write JSX anywhere inside a component (if/else, assign to variables, pass it into function)
+   ++ 1. We can place other pieces of JSX inside {}
+   ++ 2. We can write JSX anywhere inside a component (if/else, assign to variables, pass it into function)
   
   5. A piece of JSX can only have one root element if you need more,use <React.Fragment> {or the short <>}
 
 
-Diffrence between JSX and HTML :
+* Diffrence between JSX and HTML :
 1. className instead of HTML's classes
 2. htmlFor instead of HTML's for
 3. Every tag needs to be closed, Examples: <img /> or <br />
@@ -100,8 +100,8 @@ Diffrence between JSX and HTML :
 
 
 
-when we use the && operator we want to if the first value was true the app return us the second value and if the value of the first parameter was fasle then it returns nothing (because React wont return "true" or "false" and it will always returns a value)
-HINT: Now we have to choose if we want to use the ternary operator or tbe && operator based on our app
+@ when we use the && operator we want to if the first value was true the app return us the second value and if the value of the first parameter was fasle then it returns nothing (because React wont return "true" or "false" and it will always returns a value)
+! HINT: Now we have to choose if we want to use the ternary operator or tbe && operator based on our app
 
 
 

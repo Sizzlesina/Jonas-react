@@ -10,21 +10,21 @@ Many more...
 
 @ - Enable easy resusing of non-visual logic: we can compose multiple hooks into our own custom hooks
 
-@ - Given function components the ability to own state and run side effects at different lifecycle points (before v 16.8 only available in class components)
+@ - Given function components the ability to own state and run side effects at different lifecycle points (before v16.8 only available in class components)
 
 * Overview of all built-in hooks:
 ! Most used:
 @ 1 - useState (have learned)
 @ 2 - useEffect (have learned)
-@ 3 - useReducer (will learn)
-@ 4 - useContext (will learn)
+@ 3 - useReducer (have learned)
+@ 4 - useContext (have learned)
 ! Less used:
-++ 1 - useRef (will learn)
-++ 2 - useCallback (will learn)
-++ 3 - useMemo (will learn)
+++ 1 - useRef (have learned)
+++ 2 - useCallback (have learned)
+++ 3 - useMemo (have learned)
 ++ 4 - useTransition (will learn)
 ++ 5 - useDeferredValue (will learn)
-? 6 -  useLayoutEffect (will not learn)
+? 6 - useLayoutEffect (will not learn)
 ? 7 - useDebugValue (will not learn)
 ? 8 - useImprerativeHandle (will not learn)
 ? 9 - useId (will not learn)
@@ -41,7 +41,6 @@ Many more...
 - Only call hooks inside a function component or a custom hook
  
 ! HINT: These rules are automatically enforced by React's ESLint rules
-
 
 * Summary of defining and updating state:
 @ 1 - Creating state:
@@ -67,7 +66,7 @@ Based on current state => setCount( (c) => c + 1);
 ? Example: const myRef = useRef(23);
 
 @ - "Box" (object) with a mutable .current property that is persisted across renders ("normal" variables are always reset).
-! We can write to and raead from the ref using .current.
+! We can write to and read from the ref using .current.
 ? Example: myRef.current = 1000;
 
 @ - Two big use cases:
@@ -85,11 +84,6 @@ Based on current state => setCount( (c) => c + 1);
         renders             re-render                        updates
 State     ✅                  ✅              ✅              ✅    
 Refs      ✅                  ❌              ❌              ❌
-
-
-
-Update : 10 videos have been watched and 5 left to the end of lecture (will be seen later).
-
 
 
 

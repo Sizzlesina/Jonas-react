@@ -33,7 +33,7 @@
 
 
 
-- When we have a component inside an another component and we dont want the inside component to be re-rendered we can simply just pass in the component as a children prop to the other component and put it in the component open and closed tag as a children
+- When we have a component inside an another component and we dont want the insider component to be re-rendere we can simply just pass in the component as a children prop to the other component and put it in the component open and closed tag as a children
 ++ For example:
 <Parent component>
 <Children component />
@@ -92,13 +92,13 @@
 
 
 - memo => for components re-render (slow rendering)
-- useMemo => for objects re-render (slow rendering)
+- useMemo => for objects or values re-render (slow rendering)
 - useCallback => for functions re-render (slow rendering)
 ++ Example:
 - const componentName = memo(function ComponentName({props}){
   ...commands
 })
-- const objectName = useMemo(() => {
+- const valueName/objectName = useMemo(() => {
   return {  
     ...options
   }
@@ -109,14 +109,14 @@
 
 ++ In the course jonas passed in a setIsFakeDark prop to the Archive component but nothing changes (atomic blog)
 @ Reason to that:
-- React guaranteesthat the setter functions ogf the useState hook always have a stable identity which means it doesnt change on renders
+- React guarantees that the setter functions of the useState hook always have a stable identity which means it doesnt change on renders
 
 - memoization is used for heavy components in heavy projects
 
 
 * The bundle and code splitting:
-@ - Bundle: JavaScript file containing the entire application code. Downloading the bundle will laod the entire app at once, turnin it into a SPA 
-(Produce by a tool like webpack (inside create -react-app) or vite)
+@ - Bundle: JavaScript file containing the entire application code. Downloading the bundle will load the entire app at once, turnin it into a SPA 
+(Produce by a tool like webpack (inside create-react-app) or vite)
 
 @ - Bundle size: Amount of JavaScript users have to download to start using the app.One of the most important things to be optimized, so that the bundle takes less time to download
 
