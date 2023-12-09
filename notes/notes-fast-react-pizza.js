@@ -149,4 +149,24 @@ const error = useRouteError();
 console.log(error);
 
 
+* Error handling in action function of the Form:
+@ - First we create a new variable named errors and then we set a condition for it and set the value of the errors by that condition
+++ Example:
+const errors = {}
+if(!isValidNumber) errors.phone = "Please enter a correct number";
+
+@ - Second we set a new condition which says if the errors object length was more than 0 then return it:
+++ Example:
+if(Object.keys(errors).length > 0) return errors; 
+
+@ - Third we might use a custom hook named useActionData imported from react-router-dom and then store it into an variable to get the errors:
+++ Example:
+import {useActionData} from 'react-router-dom'
+const errors = useActionData();
+
+* useActionData:
+This hook provides the returned value from the previous navigation's action result, or undefined if there was no submission.
+The most common use-case for this hook is form validation errors. If the form isn't right, you can return the errors and let the user try again.
+
+
 */
