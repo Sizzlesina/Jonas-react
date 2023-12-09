@@ -24,5 +24,11 @@
 
 ++ Many people love to hate on tailwind for no reason. Please don't be that person! Try it before judging 🙏
 
+* How to use Tailwind?:
+@ - First of all we should go to the tailwind site and then install the required packages
+@ - Second we must create a prettie.config.cjs file and then copy paste the commands on the tailwind site inside there
+@ - Then inside the tailwind.config file we must copy paste the commands from tailwind to the content array
+@ - Then we can read the tailwind document and use the classes 
+
 
 */
