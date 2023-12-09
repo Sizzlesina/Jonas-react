@@ -86,6 +86,36 @@
 ! Some Hints about the new way of writing the React Router:
 1 - we can use the nested routers by using <Outlet /> as same as before but this time instead of writing the nested routes inside together components we can use the children property inside the createBrowserRouter and the route that we want to be the parent route then we can write the children routes inside of it
 
+++ example:
+@ in the Parent component:
+
+import {Outlet} from 'react-router-dom';
+export default function AppLayout(){
+  return(
+    <main>
+    <h1>this is where the children Routes placed 👇</h1>
+    <Outlet />
+    </main>
+  )
+}
+@ in the component where the Routes placed:
+
+const route = createBrowserRoute([
+  {
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage /> 
+      },
+       (and the other routes...)
+    ]
+  }
+])
+function App(){
+  return <RouterProvider router={router} />
+}
+export default App;
 
 * Something about the loader function inside the React components (when we create a vite project):
 1 - we can use a loader function inside the component to fetch the API that we want whenever we going to the component route 
@@ -103,8 +133,20 @@ export async function loader(){
 ! HINT:
 we wont use it as same as the example above and we should use a custom hook named : useLaoderData() that is a hook inside the react-router-dom so we should install the react-router-dom package and then use this function to load the data whenever we open the component and change the route to the component route
 
+++ example:
+import {useLoaderData} from 'react-router-dom'
+const menu = useLoaderData();
+conosle.log(menu);
+
 * Error handling in new React Router method:
 - We can handle wrong routes and show an Error component by writing the errorElement property inside the createBrowserRouter method and then import the Error component
 
 @ Now that we handle the error we can show the Error message as the user opens the wrong route by using a custom hook called useRouteError()
+
+++ example: 
+import {useRouteError} from 'react-router-dom';
+const error = useRouteError();
+console.log(error);
+
+
 */
