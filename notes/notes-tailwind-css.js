@@ -25,12 +25,48 @@
 ++ Many people love to hate on tailwind for no reason. Please don't be that person! Try it before judging 🙏
 
 * How to use Tailwind?:
-@ - First of all we should go to the tailwind site and then install the required packages
-@ - Second we must create a prettie.config.cjs file and then copy paste the commands on the tailwind site inside there
-@ - Then inside the tailwind.config file we must copy paste the commands from tailwind to the content array
-@ - Then we can read the tailwind document and use the classes 
+@ 1- Create your project:
+npm create vite@latest my-project -- --template react
+cd my-project
+@ 2- Install Tailwind CSS:
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+@ 3- Configure your template paths:
+++ change the tailwind.config.js file
+(Refrence in the tailwind vite framework documentation (cant copy the code in the notes file))
+
+@ 4-Add the Tailwind directives to your CSS:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@ 5- Start your build process:
+npm run dev
+
+@ 6- Start using Tailwind in your project:
+export default function App() {
+  return (
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+  )
+}
+
 
 * Customized responsive:
 - We can customize out Tailwind in config.js file and use the codes in the documentation of Tailwind
 !HINT: (We can prevent the default bahavior of Tailwind responsive classes)
+
+* Reusing the Tailwind styled elements:
+- We can use the @layer in the index.css file and then copy paste the styles there like a CSS code and whenver we want to reuse the styles just write the class name (Just like CSS):
+++ Example:
+ @layer components{
+  .input{
+    @apply (some Tailwind classes)
+  }
+}
+!HINT: Its better to not use this method of reusing the Tailwind styles because its like writing raw CSS codes
+
+- A better way of reusing Tailwind styles is to use React components
+
 */
