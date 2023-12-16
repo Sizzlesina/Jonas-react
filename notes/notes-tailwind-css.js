@@ -69,4 +69,28 @@ export default function App() {
 
 - A better way of reusing Tailwind styles is to use React components
 
-*/
+* Tailwind confige file:
+- We can configure the default Tailwind styles and add one another style class to that by using the tailwind.confige.js theme part
+
+@ 1- In the theme commands write the command that you want to overwrite in the tailwind default styles behavior
+@ 2- If you want to add a class style to an existed class style use the extended part of theme
+
+++ Example:
+theme:{
+  fontFamily :{
+    sans : "Roboto Mono,monospace",
+  },
+  extend:{
+    colors:{
+      pizza : "#123456",
+    },
+  },
+},
+
+* Adding a google font to the project:
+@ 1- In the google fonts search for the font you want
+@ 2- Select the styles that you want the font to have
+@ 3- Get the link code from the google and add it into your index.html file
+@ 4- Add the font to the tailwind.config.js theme part
+
+*/  
