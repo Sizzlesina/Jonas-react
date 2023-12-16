@@ -2,6 +2,8 @@
  * @format
  * @type {import('tailwindcss').Config}
  */
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 // eslint-disable-next-line
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -13,9 +15,10 @@ export default {
       fontSize: {
         huge: ['80rem', { lineHeight: '1' }],
       },
-    },
-    height: {
-      screen: '100dvh',
+      height: {
+        ...defaultTheme.height,
+        screen: '100dvh',
+      },
     },
   },
   plugins: [],
