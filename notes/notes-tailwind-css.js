@@ -30,5 +30,7 @@
 @ - Then inside the tailwind.config file we must copy paste the commands from tailwind to the content array
 @ - Then we can read the tailwind document and use the classes 
 
-
+* Customized responsive:
+- We can customize out Tailwind in config.js file and use the codes in the documentation of Tailwind
+!HINT: (We can prevent the default bahavior of Tailwind responsive classes)
 */
