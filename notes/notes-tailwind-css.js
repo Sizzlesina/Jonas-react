@@ -93,4 +93,22 @@ theme:{
 @ 3- Get the link code from the google and add it into your index.html file
 @ 4- Add the font to the tailwind.config.js theme part
 
+
+- When we want to add a style to the default style of the "styled class" we will  defaultTheme from tailwindcss/defaultTheme
+++ Example:
+import defaultTheme from 'tailwindcss/defaultTheme';
+export default {
+  ...
+  ,
+  theme: {
+   ...
+   ,
+      height: {
+        ...defaultTheme.height,
+        screen: '100dvh',
+      },
+    },
+  plugins: [],
+};
+ 
 */  
