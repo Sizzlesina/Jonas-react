@@ -20,6 +20,6 @@ export default {
         screen: '100dvh',
       },
     },
-  },
+  },  
   plugins: [],
 };
