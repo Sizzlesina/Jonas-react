@@ -43,7 +43,7 @@
 ++ Store: All global state lives in this centralized container. Its the single source of truth of global state in the app
 
 @ Redux cycle:
-- In order to update global state with Redux,we start by calling an action creator in a component and then dispatch the action will that resulted from the action creator. This action then reach the store where the right reducer will pick it up and update the state according to the instructions. This then triggers a re-render of the UI where the cycle finishes.
+- In order to update global state with Redux,we start by calling an action creator in a component and then dispatch the action that will resulted from the action creator. This action then reach the store where the right reducer will pick it up and update the state according to the instructions. This then triggers a re-render of the UI where the cycle finishes.
 
 ++ Goal : Make the state update logic seperate from the rest of the application 
 ? Real world task: Depositing $50 into your bank account

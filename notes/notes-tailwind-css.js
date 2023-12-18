@@ -52,6 +52,14 @@ export default function App() {
   )
 }
 
+* Prettier Tailwind:
+@ 1- npm install -D prettier prettier-plugin-tailwindcss
+@ 2- Create a prettier.config.cjs file 
+@ 3 - Add this line of code inside the file:
+module.exports = {
+  plugins: ['prettier-plugin-tailwindcss'],
+}
+
 
 * Customized responsive:
 - We can customize out Tailwind in config.js file and use the codes in the documentation of Tailwind
