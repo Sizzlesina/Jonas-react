@@ -117,7 +117,7 @@ function App(){
 }
 export default App;
 
-* Something about the loader function inside the React components (when we create a vite project):
+* Something about the loader function in         side the React components (when we create a vite project):
 1 - we can use a loader function inside the component to fetch the API that we want whenever we going to the component route 
 
 ++ For example:
@@ -131,9 +131,9 @@ export async function loader(){
 ++ Now when we open the route of the component the data will be fetched and else we dont need to fetch the data 
 
 ! HINT:
-we wont use it as same as the example above and we should use a custom hook named : useLaoderData() that is a hook inside the react-router-dom so we should install the react-router-dom package and then use this function to load the data whenever we open the component and change the route to the component route
+we wont use it as same as the example above and we should use a custom hook named : useLaoderData() that is a hook inside the react-router-dom so we should install the react-router-dom package and then use this function to load the data whenever we open the component and change the route to the component route but we should use the data inside the component that we declare the laoder function
 
-++ example:
+++ Example:
 import {useLoaderData} from 'react-router-dom'
 const menu = useLoaderData();
 conosle.log(menu);
@@ -169,4 +169,43 @@ This hook provides the returned value from the previous navigation's action resu
 The most common use-case for this hook is form validation errors. If the form isn't right, you can return the errors and let the user try again.
 
 
+* Redux of the application:
+@ - We do several things to write the Redux in this application:
+
+? 1- We write the logic that we want to write inside the useSelector function inside the component that we want to use the logic output inside the slicer file and then export the variable then we pass the variable into useSelector like this:
+
+++ Example:
+instead of writing :
+
+const account = useSelector(state => state.account.firstName.filter(name => name.length > 1));
+
+we Write:
+
+@ <slicer file>
+
+export const variable = state => state.account.firstName.filter(name => name.length > 1);
+
+@ <Component file>
+
+import {variable } from 'slicer file';
+const someOtherVariable = useSelector(variable)
+
+? 2- When we want to use a dispatch function inside another dispatch function in the slicer file we use this method:
+
+const reducerSlice = createSlice({
+  name:"slice name",
+  initialState : slice initialState,
+  reducers: {
+    firstReducer(state,action){
+      some code
+    },
+    secondReducer(state,action){
+      some code ;
+      reducerSlice.caseReducers.firstReducer(state, action);
+    }
+  }
+})
+
+
 */
+
