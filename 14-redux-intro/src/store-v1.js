@@ -14,6 +14,7 @@ const initialStateCustomer = {
   createdAt: "",
 };
 
+// in this version we will make an slice file for each reducer
 function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
     case "account/deposit":
