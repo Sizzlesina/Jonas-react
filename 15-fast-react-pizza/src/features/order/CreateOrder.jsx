@@ -8,6 +8,7 @@ import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
 import EmptyCart from '../cart/EmptyCart';
 import store from '../../store';
 import { formatCurrency } from '../../utils/helpers';
+import { useState } from 'react';
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
