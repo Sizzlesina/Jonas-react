@@ -233,4 +233,22 @@ import {applyMiddleware} from 'redux';
 ++ Warning: There is no right answer that lifts every project.it all depends on the project needs!
 
 
+
+* Thunks in Redux toolkit way:
+@ - Using createAsyncThunk :
+1 - We pass in a action name
+2 - We pass in a thunk function
+3 - Using new syntax we will write our thunk reducers:
+
+  extraReducers: (builder) =>
+    builder
+      .addCase(
+        (async function name).pending,
+        (state, action) => (commands),
+      )
+      .addCase(async function name).fulfilled, (state, action) => {commands})
+      .addCase(async function name).rejected, (state, action) => {commands}),
+});
+!HINT: The rejected method used for errors
+
 */ 
