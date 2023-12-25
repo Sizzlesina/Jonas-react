@@ -249,6 +249,7 @@ import {applyMiddleware} from 'redux';
       .addCase(async function name).fulfilled, (state, action) => {commands})
       .addCase(async function name).rejected, (state, action) => {commands}),
 });
+
 !HINT: The rejected method used for errors
 
 */ 
