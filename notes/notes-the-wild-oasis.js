@@ -121,4 +121,38 @@ font-weight : 600;
   font-size : 10px;
 }
 !The & points to the element itself
+
+- If we using a variable to asign the styles to it and then add it to the styled component but we want the syntax highlighting we can use css before the variable styles:
+++ For example:
+import styled , { css } from 'styled-components'
+const test = css`text-align : center;`;
+const Heading = styled.h1`
+${test}
+`
+
+* Props in styled components:
+- When we pass in a prop for a styled component we can get the prop in a callback function like this:
+++ Example:
+const Button = styled.button`
+${props => props.(name of the prop) === (value of the prop) && css`(the styles that we want)` }`
+
+* (as) prop:
+- This prop can tell the component to show up as which element for example we apply the styles for a h1 element but we want the element to be a h2 so we do this:
+@ H1 component:
+const H1 = styled.h1`
+${props => props.type === 'h1' && css`font-size : 20px;`}
+${props => props.type === 'h2' && css`font-size : 10px;`}
+`
+@ App component:
+import H1 from 'somewhere'
+funciton App(){
+  return (
+    <H1 type='h1' >Hello world!</H1>
+    <H1 type='h2' as='h2' >Hello world!</H1>
+  )
+}
+
+! Now the second element as well as it got the h2 styles it will show up in the HTML files as a h2 element
+
+
 */
