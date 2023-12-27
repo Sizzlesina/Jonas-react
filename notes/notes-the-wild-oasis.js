@@ -168,4 +168,17 @@ import { Navigate } from 'react-router-dom';
 
 <Route index element={<Navigate replace to='main' />}/>
 <Route path='main' element={<Main />}/>
+
+
+* Global styles:
+- We can use global styles insdie a js file and then named it as the same and we can make the styles global using createGlobalStyle function:
+++ Example:
+const GlobalStyles = createGlobalStyle`
+(the styles)
+`
+export default GlobalStyles;
+
+!HINT: This functionality only can be used in the styled components
+
+
 */
