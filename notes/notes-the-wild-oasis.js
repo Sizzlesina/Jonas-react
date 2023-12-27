@@ -161,5 +161,11 @@ ComponentName.defaultProps = {
   prop : value
 }
 
+* Route:
+- When we want a route to be the index route we must duplicate the route and then clean the path part and give it a index prop then in the element part as we want the name of it to show up in the route we must use the Navigate component which is a react-router-dom component and then replace it to the route we want:
+++ Example:
+import { Navigate } from 'react-router-dom';
 
+<Route index element={<Navigate replace to='main' />}/>
+<Route path='main' element={<Main />}/>
 */
