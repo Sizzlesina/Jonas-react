@@ -91,4 +91,30 @@ UI state management => Context API => There is almost no UI state needs in this 
 Form management => React Hook Form => Handling bigger forms can be a lot of work,such as manual state creation and error handling, A library can simplify all this
 
 Other tools => React icons/React hot toast/Recharts/data-fns/Superbase
+
+
+* Styling:
+- For styling this project we use something called styled component which is a library
+
+* How to use the styled components?
+- npm i styled-components
+- import styled from 'styled-components';
+
+* About styled component:
+- This component will return an component for every style that we wanna use for a element:
+
+++ For example
+const H1 = styled.h1`
+font-size : 60px;
+font-weight : 600;
+`
+!HINTS: 
+- We must write the styles inside an template  literal 
+
+- The CSS we write will only scoped to the component that we declare the styled component
+
+- The styled components can get props as normal JSX element for example if we have an input we can pass in the type of it as a prop and if we have a button we can pass in the onClick prop
+
+- We can reuse the styled components as many times as we want
+
 */
