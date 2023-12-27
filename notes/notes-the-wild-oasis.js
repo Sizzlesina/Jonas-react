@@ -117,4 +117,8 @@ font-weight : 600;
 
 - We can reuse the styled components as many times as we want
 
+- Hover states for the styles in the styled components be like: &:hover{
+  font-size : 10px;
+}
+!The & points to the element itself
 */
