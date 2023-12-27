@@ -154,5 +154,12 @@ funciton App(){
 
 ! Now the second element as well as it got the h2 styles it will show up in the HTML files as a h2 element
 
+* Something about props:
+- We can define default props for a component like this:
+
+ComponentName.defaultProps = {
+  prop : value
+}
+
 
 */
