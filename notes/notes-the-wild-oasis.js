@@ -274,4 +274,29 @@ export default GlobalStyles;
 * So what it do? In a simple word:
 - It will get the data from Supabase and then creates some state itself which we can use and then we can use the data without the need to fetch it and it wont cause loading for fetching data because it will store the data into cache 
 
+
+* React Query Mutations:
+- We can mutate the data and add or delete from the data we have with this functionality
+ 
+ * How to use React Query mutation:
+1 - 
+const queryClient = useQueryClient();
+const {mutate,mutateAsync} = useMutation({
+  mutationFn : deleteData (this function is written by myself for example),
+  onSuccess : () => {
+    queryClient .invalidateQueries(['queryKey'])
+  }
+})
+
+++ Descriptions about the code above:
+@ - We must create a queryClient variable to when we change the data then we check the data again and use the invalidateQueries method
+
+@ - mutate and mutateAsync are a function that we can use on onClicks or whatever we want
+
+@- mutationFn must be write by ourself
+
+@ - onSuccess is for when the mutation done successfully
+
+@ - when we use the invalidateQueries method we must use the queryKey that before we added to the queries
+
 */
