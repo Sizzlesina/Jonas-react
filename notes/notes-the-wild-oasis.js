@@ -243,5 +243,35 @@ export default GlobalStyles;
 
 - Needed because remote state is fundementally different from regular (UI) state
 
+* How to use React Query:
+@ - In the App.jsx component or the root component:
+1- npm i @tanstack/react-query
+2- import { QueryClient , QueryClientProvider } from '@tanstack/react-query';
+++ 3-  const queryClient = new QueryClient({
+++  defaultOptions:{
+++    queries: {
+++      staleTime : (time to stale data),
+++     },
+++   },
+++ }),
+
+4- In the JSX part of the code we wrap the components into one QueryClientProvider and then we give it a client prop with the value of queryClient
+++ Example:
+<QueryClientProvider client={queryClient}>
+<SinaComponent />
+</QueryClientProvider>
+
+@ - In the component that we want to use the data :
+1- import {useQuery} from '@tanstack/react-query';
+2- then destruct the states that we need like this:
+++ const {isLoading,error,data: (rename)} = useQuery({
+++  queryKey = ['some string'], => this queryKey must be a string or a object
+++  queryFn : getUsers(), => the queryFn must return a promise so we can use fetch functions here
+++ })
+3- then the code that we need
+
+
+* So what it do? In a simple word:
+- It will get the data from Supabase and then creates some state itself which we can use and then we can use the data without the need to fetch it and it wont cause loading for fetching data because it will store the data into cache 
 
 */
