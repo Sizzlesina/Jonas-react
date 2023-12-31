@@ -226,4 +226,6 @@ export default GlobalStyles;
 
 - We connect a booking with a cabin by storing the cabin's id (primary key) inside the booking cabinId (foreign key)
 
+* Tables in Supabase:
+- We can create a table in Supabase and then store the data there then we can add 1 row to the table and add data to it
 */
