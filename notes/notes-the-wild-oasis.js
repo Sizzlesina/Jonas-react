@@ -228,4 +228,20 @@ export default GlobalStyles;
 
 * Tables in Supabase:
 - We can create a table in Supabase and then store the data there then we can add 1 row to the table and add data to it
+
+
+* What is React Query? :
+- Powerful library for managing remote (server) state
+
+- Many feature that allows us to write a lot less code, while also making the UX a lot better:
+  👉 Data is stored in a cache
+  👉 Automatic loading and error states
+  👉 Automatic re-fetching to keep state synched
+  👉 Pre-fetching
+  👉 Easy remote state mutation (updating)
+  👉 Offline support
+
+- Needed because remote state is fundementally different from regular (UI) state
+
+
 */
