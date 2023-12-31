@@ -192,8 +192,38 @@ export default GlobalStyles;
 - Not just an API: Superbase also comes with easy-to-use user authentication and file storage
 
 * How to use the supabase:
-- Go to the supabase.com site
-- Create a new account
-- Create a new organization
-- Use the database
+1- Go to the supabase.com site
+2- Create a new account
+3- Create a new organization
+4- Use the database
+
+* Modeling state:
+@ - state "domains"/slices: 
+1- Bookings
+2- Cabins
+3- Guests
+4- Settings
+5- Users
+@ - Features categories:
+1- Bookings : Bookings
+2- Cabins : Cabins
+3- Guests : Guests
+4- Dashboard : Bookings
+5- Check in and out : Bookings
+6- App settings : Settings
+7- Authentication : Users
+
+!HINT: 
+👉 - All this will be global remote state,stored within Supabase
+👉 - There will be one table for each state "slice" in the database
+
+* The Bookings table:
+- Bookings are about a guest renting a cabin
+
+- So a booking need information about what guest is booking which cabin: we need to connect them
+
+@ - Supabase uses a postgres DB, which is SQL (relational DB). So we join tables using foreign keys
+
+- We connect a booking with a cabin by storing the cabin's id (primary key) inside the booking cabinId (foreign key)
+
 */
