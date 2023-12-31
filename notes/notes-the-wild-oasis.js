@@ -90,7 +90,7 @@ UI state management => Context API => There is almost no UI state needs in this 
 
 Form management => React Hook Form => Handling bigger forms can be a lot of work,such as manual state creation and error handling, A library can simplify all this
 
-Other tools => React icons/React hot toast/Recharts/data-fns/Superbase
+Other tools => React icons/React hot toast/Recharts/data-fns/Supabase
 
 
 * Styling:
@@ -180,5 +180,15 @@ export default GlobalStyles;
 
 !HINT: This functionality only can be used in the styled components
 
+* Supabase :
+- Service that allows developers to easily create a back-end with a postgres database 
+
+- Automatically creates a database and API so we can easily request and receive data from the server
+
+- No back-end development needed! 🥳
+
+- Perfect to get up and runnning quickly!
+
+- Not just an API: Superbase also comes with easy-to-use user authentication and file storage
 
 */
