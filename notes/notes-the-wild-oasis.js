@@ -191,4 +191,9 @@ export default GlobalStyles;
 
 - Not just an API: Superbase also comes with easy-to-use user authentication and file storage
 
+* How to use the supabase:
+- Go to the supabase.com site
+- Create a new account
+- Create a new organization
+- Use the database
 */
