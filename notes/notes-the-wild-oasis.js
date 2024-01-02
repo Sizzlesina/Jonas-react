@@ -300,4 +300,50 @@ const {mutate,mutateAsync} = useMutation({
 @ - when we use the invalidateQueries method we must use the queryKey that before we added to the queries
 
 @ - We can also use the onError method in the mutation in case we have an error 
+
+
+* Libraries:
+- In this course we used many libraries which im gonna talk about them:
+@ 1- react-hot-toast
+this library is used for showing a toast to the user (notification) instead of using the alert which is a javascript method
+* How to use Toaster:
+1- npm i react-hot-toast
+@ In the root component:
+2- import {Toaster} from 'react-hot-toast'
+3-  <Toaster
+        position='(position that we wanna give to the Toaster)'
+        gutter={(A number)}
+        containerStyle={{ (Styles that we wanna give to the Toaster pay attention that it must be inside an object) }}
+        toastOptions={{
+          susccess: {
+            duration: (a number in miliseconds),
+          },
+          error: {
+            duration: (a number in miliseconds),
+          },
+          style: {
+          (Styles that we wanna give to the Toaster pay attention that it must be inside an object)
+          },
+        }}
+      />
+@ In the component that we wanna use the Toaster:
+4- import toast from 'react-hot-toast'
+5- whenever we wanna use the toast : toast.error or toast.success or something like this we can use the toast methods
+
+@ 2- react-hook-form:
+- In this library we can controll our Forms very good
+* How to use react-hook-form:
+1- npm i react-hook-form
+2- import {useForm} from 'react-hook-form'
+3- const {register,handleSubmit} = useForm(); 
+4- function submitFunction(data){
+  (something we want to do on the data)
+};
+5- <Form onSubmit={handleSubmit(submitFunction)}>
+<Input id="id" {...register("id")}/>
+</Form>
+
+!HINT: In here the Form component and the Input component are styled components
+
+
 */
