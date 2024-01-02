@@ -16,7 +16,7 @@
 * single page applications (SPA):
 @ - APplications that is executed entirely on the client (browsers)
 
-@ - Routes: different URls correspond to different views (components)
+@ - Routes: different URLs correspond to different views (components)
 
 @ - The page is never reloaded 
 
@@ -109,4 +109,27 @@ www.example.com/app/cities/lisbon?lat=38.728&lng=-9.141
 @ - City name and GPS Location were retrieved from the URL instead of application state
 ++ lisbon => city name
 ++ lat=38.728&lng=-9.141 => GPS Location
+
+
+* Router guard:
+- We can guard our route in case the user writes the route manually and tries to access the route like login that needs and authentication but the user can have access to it
+@ So in this case we can do this:
+1- Create an context file and have write the authentication functions there then wrap all the components that need the function into an provider component (This mehtod was told in the context videos)
+2- Creates a component like : <ProtectedRoute /> 
+3- set a condition for it that checks if the isAuth is true then returns the children of the component:
+++ Example:
+function ProtectedRoute({children}){
+  const {isAuth} = useAuth(); => which is in the context
+  const navigate = useNavigate();
+  useEffect(function(){
+    if(!isAuth) navigate("/")
+  },[isAuth,navigate]);
+
+  return isAuth ? children : null;
+}
+export default ProtectedRotue;
+
+
+4- Guard the Route we want into this route (as a children)
+  
 */
