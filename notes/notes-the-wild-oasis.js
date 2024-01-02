@@ -428,6 +428,12 @@ function ParentComponent({children}){
   const variable = children.props.id
 }
 
+* Styled component:
+- When we creating a style component for an html element like input we can even choose the attributes of the element like this:
+++ const Input = styled.input.attrs({type : "text"})`
+++ (the styles)`
+
+
 */
 
 // ++ Warning: If you dont undrestand the code just copy it and paste it in a React component 
