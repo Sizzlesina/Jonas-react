@@ -336,14 +336,98 @@ this library is used for showing a toast to the user (notification) instead of u
 1- npm i react-hook-form
 2- import {useForm} from 'react-hook-form'
 3- const {register,handleSubmit} = useForm(); 
-4- function submitFunction(data){
-  (something we want to do on the data)
-};
-5- <Form onSubmit={handleSubmit(submitFunction)}>
-<Input id="id" {...register("id")}/>
-</Form>
 
+* Now we want to talk more about the functionality of the useForm hook:
+@ register : 
+- We can destruct register from the useForm hook like this:
+const {register} = useForm();
+and the register is used for storing the form data
+!HINT: We can destruct the rest of the methods like this
+* How can we use register?:
+<Form>
+<Input id="id" {...register("id")} />
+</Form>
 !HINT: In here the Form component and the Input component are styled components
 
+* What is the other functinality of the register?:
+- After the id string we can pass in an object to the register like this:
+++ {...register("id",{})}
+- Now in the object we can write whatever functionality we need like : required,min,validate, etc...
+@ Now lets talk about all of them;
+1- required => a message that we show to the user whenever the field is empty and has no value
+++ Example:
+{...register("id",{
+  required: "This field should have a value"
+})}
+
+2- min => this property needs to be an object it has a value and a message that it will show to the user if the value that user enters was not have the minimum value
+++ Example:
+{...register("id",{
+  min:{
+    value : 1,
+    message : "This field should have the minimun value of 1"
+  }
+})}
+
+3- validate => this will get an callback funciton that checks for the validation of the field and the callback function gets a value parameter that is a value of the input field
+++ Example:
+{...register("id",{
+  validate : (value) => value > 100 || "This field value must be more than 100" 
+})}
+
+@ handleSubmit :
+- This is give us the data of the form when we submit it
+* How can we use handleSubmit?:
+1- funciton onSubmit(data){
+  (something we want to do to the data)
+}
+2- <Form onSubmit(handleSubmit(onSubmit))>
+<Input id="id" {...register("id")} />
+</Form>
+
+@ reset :
+- This will reset the form
+* How can we use reset?:
+- just pass it in whenever you need it like this : reset()
+
+@ getValues :
+- Realise that when we use the validate property of the register method we want to have access to the value of another input to check for the validation so how can we have access to that value?
+++ Solution:
+const {getValues} = useForm();
+<Form>
+<Input id="price" {...register("price")}/>
+<Input id"discount" {...register("discount",{
+  validate : (value) => getValues().price > value || "Discount must be less than price"
+})} />
+</Form>
+
+@ formState :
+- In case we have an error we can have access to the error with formState
+++ Example:
+const {formState} = useForm();
+const {errors} = formState;
+
+<Form>
+<Input id"name" {...register("name",{
+  required : "This field must have a value"
+})}/>
+{errors?.name?.message && <Error>{errors.name.message}</Error>}
+</Form>
+
+
+
+* How to have access to the children props in anothe component:
+- Its good to know this trick in case we want to have access to the props of a children prop
+@ The children component:
+<ParentComponent>
+<ChildrenComponent id={id} />
+</ParentComponent>
+
+@ The parent component:
+function ParentComponent({children}){
+  const variable = children.props.id
+}
 
 */
+
+// ++ Warning: If you dont undrestand the code just copy it and paste it in a React component 
