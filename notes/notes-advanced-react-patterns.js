@@ -160,4 +160,18 @@ export default Counter
 
 !HINT: These component wont work outside the Counter component
 
+* React portal:
+- with React Portal we can choose where to place the component
+++ Example:
+we dont want to place the component inside the div but we want it to be an children of body
+@ so we do this:
+function Modal({children,onClose}){
+  import {CreatePortal} from 'react-dom';
+
+  return CreatePortal(
+      (JsX),
+      (Where to place the jsx for example document.body)
+  )
+}
+@ - Now this component is a direct child of the body element
 */
