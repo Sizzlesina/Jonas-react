@@ -174,4 +174,16 @@ function Modal({children,onClose}){
   )
 }
 @ - Now this component is a direct child of the body element
+
+* Clone element:
+- cloneElement lets you create a new React element using another element as a starting point
+
+@ How to use clone element?:
+const cloneElement = cloneElement(element,props,...children)
+++ Example:
+function Open({ children, opens: opensWindowName }) {
+  const { open } = useContext(ModalContext);
+  return cloneElement(children, { onClick: () => open(opensWindowName) });
+}
+!HINT: More about this method later (will read a document about that)
 */
