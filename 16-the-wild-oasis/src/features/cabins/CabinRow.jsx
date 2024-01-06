@@ -1,13 +1,10 @@
-/** @format */
-
-import { HiSquare2Stack, HiPencil, HiTrash } from "react-icons/hi2";
-
 import styled from "styled-components";
 import { useState } from "react";
 
-import { formatCurrency } from "../../utils/helpers";
 import CreateCabinForm from "./CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabin";
+import { formatCurrency } from "../../utils/helpers";
+import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 
 const TableRow = styled.div`
@@ -48,8 +45,11 @@ const Discount = styled.div`
   font-weight: 500;
   color: var(--color-green-700);
 `;
+
 function CabinRow({ cabin }) {
   const [showForm, setShowForm] = useState(false);
+  const { isDeleting, deleteCabin } = useDeleteCabin();
+  const { isCreating, createCabin } = useCreateCabin();
 
   const {
     id: cabinId,
@@ -60,9 +60,6 @@ function CabinRow({ cabin }) {
     image,
     description,
   } = cabin;
-
-  const { isDeleting, deleteCabin } = useDeleteCabin();
-  const { isCreating, createCabin } = useCreateCabin();
 
   function handleDuplicate() {
     createCabin({
@@ -77,7 +74,7 @@ function CabinRow({ cabin }) {
 
   return (
     <>
-      <TableRow role='row'>
+      <TableRow role="row">
         <Img src={image} />
         <Cabin>{name}</Cabin>
         <div>Fits up to {maxCapacity} guests</div>
