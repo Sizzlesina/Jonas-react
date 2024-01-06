@@ -98,4 +98,66 @@ function App(){
 export default withSomething;
 @ Usage in our app:
 - When we want to use the logics so many times but we want to declare them once it helps to less hard codding
+
+* Compound component pattern:
+- If we needed so many props for a component we can easily just use the compound component for every prop
+
+@ How to use compound component?:
+1- Create a context
+2- Create the parent component
+3- Create a child component to help implementing the common task
+4- Add the child components as properties to parent component (optional)
+
+++ Example:
+@ We want to write a counter component:
+const CounterContext = createContext();
+
+function Counter({children}){
+  const [count,setCount] = useState(0);
+  const increase = () => {
+    setCount(c => c + 1);
+  }
+  const decrease = () => {
+    setCount(c => c - 1);
+  }
+  return (
+    <CounterContext.Provider value={{count,increase,decrease}}>
+    <span>{children}</span>
+    </CounterContext.Provider>
+  )
+}
+
+function Count(){
+  const {count} = useContext(CounterContext);
+  <span>{count}</span>
+}
+function Label({children}){
+  return <span>{children}</span>
+}
+function Increase({icon}){
+  const {increase} = useContext(CounterContext);
+  return <button onClick={increase}>{icon}</button>
+}
+function Decrease({icon}){
+  const {decrease} = useContext(CounterContext);
+  return <button onClick={decrease}>{icon}</button>
+}
+
+Counter.Count = Count;
+Counter.Label = Label;
+Counter.Increase = Increase;
+Counter.Decrease = Decrease;
+
+export default Counter
+
+@ Now we can use the Counter component like this:
+<Counter>
+<Counter.Label>This is a counter</Counter.Label>
+<Counter.Decrease />
+<Counter.Count />
+<Counter.Increase />
+</Counter>
+
+!HINT: These component wont work outside the Counter component
+
 */
