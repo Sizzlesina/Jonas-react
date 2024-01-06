@@ -81,4 +81,21 @@ function App(){
 
 @ - Now we can use the List twice and with different data this help the reusability of the component
 
+* Higher Order Component:
+- Realise that we have a component that we want to add a feature to it that is simillar to another component so we can create a higher order component
+@ How to use the higher order component?:
+1- create a component named it with withSomething
+2- function withSomething(wrappedComponent){
+  return anotherComponent(props){
+    (Logic of the component)
+  }
+  return (
+    (New UI),
+    @ Whenever we want to add the anotheComponent component
+    <WrappedComponent {...props} anotherProp   />
+  )
+}
+export default withSomething;
+@ Usage in our app:
+- When we want to use the logics so many times but we want to declare them once it helps to less hard codding
 */
