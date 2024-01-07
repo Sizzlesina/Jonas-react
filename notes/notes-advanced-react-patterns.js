@@ -179,11 +179,50 @@ function Modal({children,onClose}){
 - cloneElement lets you create a new React element using another element as a starting point
 
 @ How to use clone element?:
-const cloneElement = cloneElement(element,props,...children)
+- When we have a child component with some props but in the application we want to use it with different props we use cloneElement funciton which can be imported from react library
+
 ++ Example:
-function Open({ children, opens: opensWindowName }) {
-  const { open } = useContext(ModalContext);
-  return cloneElement(children, { onClick: () => open(opensWindowName) });
+@ Parent component:
+import ChildComponent from './ChildComponent';
+import cloneElement from 'react'
+
+function Parent(){
+  const originalElement = <ChildComponent name="Sina" age:{25} />;
+  const clonedElement = cloneElement(originalComponent,{age : 26, name :"Ali" , gender :"Male"});
+
+  return (
+    <div>
+    <h1>Original Element:</h1>
+    {originalElement}
+
+    <h1>Cloned Element:</h1>
+    {clonedElement}
+
+
+    </div>
+  )
 }
-!HINT: More about this method later (will read a document about that)
+
+@ Child Component:
+function ChildComponent(name,gender,age){
+  return (
+    <p>Name : {name}</p>
+    <p>Age : {age}</p>
+    {gender && <p>Gender : {gender}</p>}
+  )
+}
+export default ChildComponent;
+
+
+* Now the result will be:
+Original Element:
+Name : "Sina"
+Age : 25
+
+Cloned Element:
+Name : Ali
+Age : 26
+Gender : Male
+
+!HINT: The props value will be changed and if the props value exist the new value will be replaced and show up in the browser window SO the CloneElement will clone the element and then replace the new props and its values
 */
