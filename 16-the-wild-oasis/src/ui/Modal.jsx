@@ -76,6 +76,7 @@ function Modal({ children }) {
 function Open({ children, opens: opensWindowName }) {
   const { open } = useContext(ModalContext);
   return cloneElement(children, { onClick: () => open(opensWindowName) });
+  // this line of code will set a onClick prop for the Button component inside the Modal.Open opened and closed tag and now the setOpenName value will be => opensWindowName
 }
 
 function Window({ children, name }) {
@@ -89,6 +90,7 @@ function Window({ children, name }) {
           <HiXMark />
         </Button>
         <div>{cloneElement(children, { onCloseModal: close })}</div>
+        {/* in the cloneElement above the CreateCabinForm component will receive a prop named onCloseModal and with this mehtod we will give a new value to that prop and make a clone from that componnet with new prop and new value */}
       </StyledModal>
     </Overlay>,
     document.body
