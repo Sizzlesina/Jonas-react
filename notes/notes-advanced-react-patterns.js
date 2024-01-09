@@ -104,9 +104,9 @@ export default withSomething;
 
 @ How to use compound component?:
 1- Create a context
-2- Create the parent component
-3- Create a child component to help implementing the common task
-4- Add the child components as properties to parent component (optional)
+2- Create the parent component that holds the context values and provider (its more a context function not a parent component)
+3- Create a child component to help implementing a common task related to the parent component
+4- Add the child components as properties to parent component 
 
 ++ Example:
 @ We want to write a counter component:
