@@ -261,4 +261,22 @@ if(filterValue === "with-filter-3") filteredUI = items.map(item => (and how we w
 
 @ Now we filter the items in 3 ways and for each button we have a different filtering
 
+* A tip with props:
+- When we have too many props using the spread operator we can get the rest of props 
+++ Example:
+@ Parent Component:
+function ParentComponent(){
+  return <ChildComponent prop1={value1} prop2={value2} prop3={value3} prop4={value4}/>
+}
+
+@ Child Component:
+function ChildComponent(prop1,...props){
+  console.log(props)
+  return(
+   <h1>
+   All the rest props will be shown in an object
+   </h1>
+  );
+
+}
 */
