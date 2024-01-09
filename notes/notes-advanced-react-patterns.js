@@ -225,4 +225,40 @@ Age : 26
 Gender : Male
 
 !HINT: The props value will be changed and if the props value exist the new value will be replaced and show up in the browser window SO the CloneElement will clone the element and then replace the new props and its values
+
+
+
+* Filtering on the client side:
+- In this project we use a filtering method using useSearchParms function which will get imported from 'react-router-dom'
+ 
+@ How to write this filtering method:
+1- const [serachParams,setSearchParams] = useSearchParams();
+2- function handleClick(value){
+  searchParams.set("some-route",value)
+  setSearchParams(searchParams)
+}
+3- function Filter(){
+  return <button onClick={() => handleClick("with-filter-1")}>Filter 1</button>
+  return <button onClick={() => handleClick("with-filter-2")}>Filter 2</button>
+  return <button onClick={() => handleClick("with-filter-3")}>Filter 3</button>
+}
+
+@ This then change the URL and change the route whenever we click an button 
+- Now the important part
+
+@ In the component that we wanna use Filter component:
+1- const [searchParams] = useSearchParams();
+const filterValue = searchParams.get('some-route')
+
+
+let filteredUI;
+
+if(filterValue === "with-filter-1") filteredUI = items.map(item => (and how we want to filter the items))
+
+if(filterValue === "with-filter-2") filteredUI = items.map(item => (and how we want to filter the items))
+
+if(filterValue === "with-filter-3") filteredUI = items.map(item => (and how we want to filter the items))
+
+@ Now we filter the items in 3 ways and for each button we have a different filtering
+
 */
