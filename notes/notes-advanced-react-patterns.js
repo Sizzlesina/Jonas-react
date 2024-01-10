@@ -288,4 +288,16 @@ const {isLoading,error,data } = useQuery({
   queryKey : ["someTableName" , filter],
   queryFn : () => getApi({ filter })
 })
+
+* Pre-fetching data:
+- When we make the pagination on each page we would have fetch the data on re-render and this would cause a bad user exprience so we use queryClient and call the prefetchQuery method on it so we can pre-fetch the data and then on each render it doesnt need to re-fetch the data
+++ Example:
+1- const queryClient = useQueryClient();
+@ On end of the API flle:
+2- queryClient.prefetchQuery({
+  queryKey : ['someKey'],
+  queryFn : getAPI,
+})
+
+
 */
