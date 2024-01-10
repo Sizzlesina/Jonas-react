@@ -277,6 +277,15 @@ function ChildComponent(prop1,...props){
    All the rest props will be shown in an object
    </h1>
   );
-
 }
+
+* Something about React Query key :
+- The React Query key is working as same as dependency array in the useEffect hook and when we want to refetch the data we just pass in the value that we want it to be refetched
+++ Example:
+const filter = (some code that says render some filter field and some filter value)
+
+const {isLoading,error,data } = useQuery({
+  queryKey : ["someTableName" , filter],
+  queryFn : () => getApi({ filter })
+})
 */
