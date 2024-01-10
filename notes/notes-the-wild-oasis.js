@@ -433,6 +433,83 @@ function ParentComponent({children}){
 ++ const Input = styled.input.attrs({type : "text"})`
 ++ (the styles)`
 
+* Filtering on the client side:
+- In this project we use a filtering method using useSearchParms function which will get imported from 'react-router-dom'
+ 
+@ How to write this filtering method:
+1- const [serachParams,setSearchParams] = useSearchParams();
+2- function handleClick(value){
+  searchParams.set("some-route",value)
+  setSearchParams(searchParams)
+}
+3- function Filter(){
+  return <button onClick={() => handleClick("with-filter-1")}>Filter 1</button>
+  return <button onClick={() => handleClick("with-filter-2")}>Filter 2</button>
+  return <button onClick={() => handleClick("with-filter-3")}>Filter 3</button>
+}
+
+@ This then change the URL and change the route whenever we click an button 
+- Now the important part
+
+@ In the component that we wanna use Filter component:
+1- const [searchParams] = useSearchParams();
+const filterValue = searchParams.get('some-route')
+
+
+let filteredUI;
+
+if(filterValue === "with-filter-1") filteredUI = items.map(item => (and how we want to filter the items))
+
+if(filterValue === "with-filter-2") filteredUI = items.map(item => (and how we want to filter the items))
+
+if(filterValue === "with-filter-3") filteredUI = items.map(item => (and how we want to filter the items))
+
+@ Now we filter the items in 3 ways and for each button we have a different filtering
+
+* A tip with props:
+- When we have too many props using the spread operator we can get the rest of props 
+++ Example:
+@ Parent Component:
+function ParentComponent(){
+  return <ChildComponent prop1={value1} prop2={value2} prop3={value3} prop4={value4}/>
+}
+
+@ Child Component:
+function ChildComponent(prop1,...props){
+  console.log(props)
+  return(
+   <h1>
+   All the rest props will be shown in an object
+   </h1>
+  );
+}
+
+* Something about React Query key :
+- The React Query key is working as same as dependency array in the useEffect hook and when we want to refetch the data we just pass in the value that we want it to be refetched
+++ Example:
+const filter = (some code that says render some filter field and some filter value)
+
+const {isLoading,error,data } = useQuery({
+  queryKey : ["someTableName" , filter],
+  queryFn : () => getApi({ filter })
+})
+
+* Pre-fetching data:
+- When we make the pagination on each page we would have fetch the data on re-render and this would cause a bad user exprience so we use queryClient and call the prefetchQuery method on it so we can pre-fetch the data and then on each render it doesnt need to re-fetch the data
+++ Example:
+1- const queryClient = useQueryClient();
+@ On end of the API flle:
+2- queryClient.prefetchQuery({
+  queryKey : ['someKey'],
+  queryFn : getAPI,
+})
+
+
+* Some tip about the React Query:
+- Remember that when we use useQuery function from react query we would have to pass in two property to it which was queryKey and queryFn and we talked about them now we want to introduce another property which is retry
+
+@ retry:
+- When react query cant fetch the data it will retru 3 times to fetch that and we can prevent this activity by using retry and set the value of it to false (we can check on that later)
 
 */
 
