@@ -14,6 +14,7 @@ import Spinner from "../../ui/Spinner";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useBooking } from "./useBooking";
 import { useNavigate } from "react-router-dom";
+import { HiArrowUpOnSquare } from "react-icons/hi2";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -54,6 +55,7 @@ function BookingDetail() {
             Check in
           </Button>
         )}
+
         <Button variation='secondary' onClick={moveBack}>
           Back
         </Button>
