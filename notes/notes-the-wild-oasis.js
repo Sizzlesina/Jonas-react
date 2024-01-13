@@ -514,6 +514,9 @@ const {isLoading,error,data } = useQuery({
 
 * Something about the onSucces property in uesMutation function:
 - This property can return a data as a parameter and thats the data that will be received whenever the mutation is successful
+
+* queryClient tip:
+- Another property which we can use for queryClient is setQueryData that with it we can update the data manually from the cache 
 */
 
 // ++ Warning: If you dont undrestand the code just copy it and paste it in a React component 
