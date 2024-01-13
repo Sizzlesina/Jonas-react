@@ -19,7 +19,6 @@ import { useCheckout } from "../check-in-out/useCheckout";
 import { useDeleteBooking } from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-import { NavigatorLockAcquireTimeoutError } from "@supabase/supabase-js";
 
 const HeadingGroup = styled.div`
   display: flex;

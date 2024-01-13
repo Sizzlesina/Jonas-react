@@ -511,6 +511,9 @@ const {isLoading,error,data } = useQuery({
 @ retry:
 - When react query cant fetch the data it will retru 3 times to fetch that and we can prevent this activity by using retry and set the value of it to false (we can check on that later)
 
+
+* Something about the onSucces property in uesMutation function:
+- This property can return a data as a parameter and thats the data that will be received whenever the mutation is successful
 */
 
 // ++ Warning: If you dont undrestand the code just copy it and paste it in a React component 
