@@ -1,8 +1,6 @@
-/** @format */
-
+import { useQuery } from "@tanstack/react-query";
 import { subDays } from "date-fns";
 import { useSearchParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { getBookingsAfterDate } from "../../services/apiBookings";
 
 export function useRecentBookings() {
@@ -13,11 +11,7 @@ export function useRecentBookings() {
     : Number(searchParams.get("last"));
   const queryDate = subDays(new Date(), numDays).toISOString();
 
-  const {
-    isLoading,
-    data: bookings,
-    error,
-  } = useQuery({
+  const { isLoading, data: bookings } = useQuery({
     queryFn: () => getBookingsAfterDate(queryDate),
     queryKey: ["bookings", `last-${numDays}`],
   });
