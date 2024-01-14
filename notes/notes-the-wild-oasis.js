@@ -517,6 +517,14 @@ const {isLoading,error,data } = useQuery({
 
 * queryClient tip:
 - Another property which we can use for queryClient is setQueryData that with it we can update the data manually from the cache 
+
+* A bug with opening and closing the menus:
+- This problem was that when we clicked the menus button it will open the menu but then when we click it again we want it to be closed but it was close the menu and then immediately open it so nothing was happened
+
+@ Solution:
+- We pass in false as the second parameter of the handler function of the outside click of the menu and then in the handler function where we was opening the menus we do e.stopPropagation();
+!HINT: As if you dont underestand this part check the Menus.jsx file and then the end of the lecture 29th video
+ 
 */
 
 // ++ Warning: If you dont undrestand the code just copy it and paste it in a React component 
