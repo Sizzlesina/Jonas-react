@@ -33,5 +33,12 @@ status = 200
 10- git push the files into the repository
 
 @ Now we want to use this github repo to deploy the application:
-1- 
+1- Sign up into vercel using the github account
+2- Look up for a add new button 
+3- Search for the repo that you want to add to vercel
+4- Then we can deploy the project into vercel 
+5- We can see the domain in the project dashboard
+6- The project works as exact same way as netlify
+!HINT: This is the prefered way to deploy the project
+
 */
